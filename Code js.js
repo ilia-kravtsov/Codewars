@@ -1,7 +1,19 @@
+
+// Training JS #1: create your first JS function and print "Hello World!"
+
 function helloWorld() {
     const str = "Hello World!";
     console.log(str);
   }
+
+// BP
+
+helloWorld = function() {
+    var str = "Hello World!";
+    console.log( str );
+  }
+
+// Training JS #2: Basic data types--Number
 
   var v1=50;v2=100,v3=150,v4=200,v5=2,v6=250
   function equal1(){
@@ -30,3 +42,6 @@ function helloWorld() {
     var b=v3   //set number value to b
     return a%b;
   }
+
+// BP
+
