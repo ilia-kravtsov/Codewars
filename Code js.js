@@ -131,3 +131,14 @@ const getLast = array => array[array.length - 1];
 const pushElement = array => array.concat(0);
 
 const popElement = array => array.splice(0, array.length - 1);
+
+// Training JS #5: Basic data types--Object
+
+function animal(obj){
+  var ani={name:"dog", legs:4, color: "white"};
+  return 'This ' + obj.color + ' ' + obj.name + ' has ' + obj.legs + ' legs.';
+}
+
+// BP 
+
+const animall = (obj) => `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
