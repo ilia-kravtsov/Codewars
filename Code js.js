@@ -146,3 +146,21 @@ const animall = (obj) => `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
 function animall(obj){
   return `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
 }
+
+// Training JS #7: if..else and ternary operator
+
+function saleHotdogs(n){
+  return n*(n<5 ? "100" : n>=5 && n<10 ? "95" : "90") ;
+}
+
+// Training JS #8: Conditional statement--switch
+
+function howManydays(month){
+  var days;
+  switch (month){
+  case 2: return 28; 
+  case 4: case 6: case 9: case 11: return 30;
+  default: return 31;
+  }
+  return days;
+}
