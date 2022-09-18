@@ -142,3 +142,7 @@ function animal(obj){
 // BP 
 
 const animall = (obj) => `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
+
+function animall(obj){
+  return `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
+}
