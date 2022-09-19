@@ -262,3 +262,9 @@ function giveMeFive(obj){
 function greet(name){
   return `Hello, ${name} how are you doing today?`;
 }
+
+// Remove First and Last Character
+function removeChar(str){
+  return str.slice(1, -1);
+ };
+ 
