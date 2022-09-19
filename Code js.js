@@ -267,4 +267,8 @@ function greet(name){
 function removeChar(str){
   return str.slice(1, -1);
  };
- 
+
+ // You only need one - Beginner
+ function check(a, x) {
+  return a.includes(x);
+};
