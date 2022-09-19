@@ -257,5 +257,8 @@ function giveMeFive(obj){
   return five;
 }
 
-// Training JS #13: Number object and its properties
-// Training JS #14: Methods of Number object--toString() and toLocaleString()
+// Returning Strings
+
+function greet(name){
+  return `Hello, ${name} how are you doing today?`;
+}
