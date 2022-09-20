@@ -288,3 +288,7 @@ function stringToArray(string){
 function contamination(text, char){
   return char.repeat(text.length)
   }
+
+  function booleanToString(b){
+    return b ? "true" : "false";
+  }
