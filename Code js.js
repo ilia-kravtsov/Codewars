@@ -284,3 +284,7 @@ function bonusTime(salary, bonus) {
 function stringToArray(string){
   return string.split(' ');
 }
+
+function contamination(text, char){
+  return char.repeat(text.length)
+  }
