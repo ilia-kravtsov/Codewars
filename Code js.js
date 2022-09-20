@@ -308,3 +308,7 @@ function contamination(text, char){
         return 'I smell a series!'
     }
   }
+
+  const stringToNumber = function(str){
+    return Number(str);
+  }
