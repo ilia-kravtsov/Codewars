@@ -272,3 +272,11 @@ function removeChar(str){
  function check(a, x) {
   return a.includes(x);
 };
+
+function bonusTime(salary, bonus) {
+  if(bonus === true){
+    return '£' + salary * 10;
+    } else {
+    return '£' + salary;
+  }
+}
