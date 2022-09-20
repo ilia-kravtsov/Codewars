@@ -280,3 +280,7 @@ function bonusTime(salary, bonus) {
     return '£' + salary;
   }
 }
+
+function stringToArray(string){
+  return string.split(' ');
+}
