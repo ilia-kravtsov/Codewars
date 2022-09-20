@@ -292,3 +292,7 @@ function contamination(text, char){
   function booleanToString(b){
     return b ? "true" : "false";
   }
+
+  function repeatStr (n, s) {
+    return s.repeat(n);
+  }
