@@ -206,7 +206,7 @@ function padIt(str,n){
   return str;
 }
 
-// Training JS #10: loop statement --for
+// Training JS #10: loop statement --for---
 
 function pickIt(arr){
   var odd=[],even=[];
