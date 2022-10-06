@@ -316,3 +316,8 @@ function contamination(text, char){
   function DNAtoRNA(dna) {
     return dna.replace(/T/g, 'U');
   }
+
+  var re = /яблоки/gi;
+  var str = 'Яблоки круглые и яблоки сочные.';
+  var newstr = str.replace(re, 'апельсины');
+  console.log(newstr); // апельсины круглые и апельсины сочные.
