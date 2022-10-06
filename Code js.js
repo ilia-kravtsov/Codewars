@@ -312,3 +312,7 @@ function contamination(text, char){
   const stringToNumber = function(str){
     return Number(str);
   }
+
+  function DNAtoRNA(dna) {
+    return dna.replace(/T/g, 'U');
+  }
