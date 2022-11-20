@@ -339,3 +339,11 @@ function contamination(text, char){
     }
     return sumOfPoints
   }
+
+  // _____________________________________ Умножение массива на 2
+
+  maps = x => x.map(el => el*2);
+
+  // _____________________________________ Складываем два массива
+
+  let arrayPlusArray = (arr1, arr2) => arr1.concat(arr2).reduce((a,b) => a + b);
