@@ -47,11 +47,11 @@ helloWorld = function() {
 
 var v1=50;v2=100,v3=150,v4=200,v5=2,v6=250
 
-const equal1 = () => v1 + v1
-const equal2 = () => v3 - v1
-const equal3 = () => v1 * v5
-const equal4 = () => v4 / v5
-const equal5 = () => v2 % v4
+// const equal1 = () => v1 + v1
+// const equal2 = () => v3 - v1
+// const equal3 = () => v1 * v5
+// const equal4 = () => v4 / v5
+// const equal5 = () => v2 % v4
 
 // Training JS #3: Basic data types--String
 
@@ -91,13 +91,13 @@ const equal5 = () => v2 % v4
 
  var a1="A",a2="a",b1="B",b2="b",c1="C",c2="c",d1="D",d2="d",e1="E",e2="e",n1="N",n2="n"
 
- const Dad = () => d1 + a2 + d2
- const Bee = () => b1 + e2 + e2
- const banana = () => b2 + a2 + n2 + a2 + n2 + a2
+//  const Dad = () => d1 + a2 + d2
+//  const Bee = () => b1 + e2 + e2
+//  const banana = () => b2 + a2 + n2 + a2 + n2 + a2
  
- const answer1 = () => "no"
- const answer2 = () => "no"
- const answer3 = () => "yes"
+//  const answer1 = () => "no"
+//  const answer2 = () => "no"
+//  const answer3 = () => "yes"
 
  // Training JS #4: Basic data types--Array
 
@@ -122,15 +122,15 @@ function popElement(arr){
 
 // BP
 
-const getLength = array => array.length;
+// const getLength = array => array.length;
 
-const getFirst = array => array[0];
+// const getFirst = array => array[0];
 
-const getLast = array => array[array.length - 1];
+// const getLast = array => array[array.length - 1];
 
-const pushElement = array => array.concat(0);
+// const pushElement = array => array.concat(0);
 
-const popElement = array => array.splice(0, array.length - 1);
+// const popElement = array => array.splice(0, array.length - 1);
 
 // Training JS #5: Basic data types--Object
 
@@ -143,9 +143,9 @@ function animal(obj){
 
 const animall = (obj) => `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
 
-function animall(obj){
-  return `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
-}
+// function animall(obj){
+//   return `This ${obj.color} ${obj.name} has ${obj.legs} legs.`;
+// }
 
 // Training JS #7: if..else and ternary operator
 
@@ -412,3 +412,52 @@ function defineSuit(card) {
   }
 }
 
+
+// ________________ CSV representation of array
+
+/*
+
+input:
+   [[ 0, 1, 2, 3, 4 ],
+    [ 10,11,12,13,14 ],
+    [ 20,21,22,23,24 ],
+    [ 30,31,32,33,34 ]] 
+    
+output:
+     '0,1,2,3,4\n'
+    +'10,11,12,13,14\n'
+    +'20,21,22,23,24\n'
+    +'30,31,32,33,34'
+
+*/
+
+let array_1 = [[ 0, 1, 2, 3, 4 ],
+[ 10,11,12,13,14 ],
+[ 20,21,22,23,24 ],
+[ 30,31,32,33,34 ]];
+
+// let array_2 = array_1.join(',')
+
+// console.log(array_2) // 0,1,2,3,4,10,11,12,13,14,20,21,22,23,24,30,31,32,33,34
+
+let array_3 = array_1.map(everyArrayInArrayOfArrays => everyArrayInArrayOfArrays.join(','))
+
+console.log(array_3); // (4) ['0,1,2,3,4', '10,11,12,13,14', '20,21,22,23,24', '30,31,32,33,34']
+
+let array_4 = array_3.join('\n')
+
+console.log(array_4); 
+
+/* 
+
+0,1,2,3,4
+10,11,12,13,14
+20,21,22,23,24
+30,31,32,33,34
+
+*/
+
+let toCsvText = array => {
+  let v = array.map(a => a.join(','))
+  return v.join('\n')
+}
