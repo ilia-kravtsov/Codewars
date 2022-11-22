@@ -352,5 +352,34 @@ function contamination(text, char){
 
 invert = array => array.map(x => -x) 
 
+// _____________________________________ Нам приходит карта с символом мы возвращаем масть
 
+/* 
+You get any card as an argument. Your task is to return the suit of this card (in lowercase).
+
+Our deck (is preloaded):
+
+('3♣') -> return 'clubs'
+('3♦') -> return 'diamonds'
+('3♥') -> return 'hearts'
+('3♠') -> return 'spades'
+*/
+
+function defineSuit(card) {
+  
+  let v = card.substr(-1)
+  
+  if (v === '♣'){
+    return 'clubs'
+  }
+  else if (v === '♦'){
+    return 'diamonds'
+  }
+  else if (v === '♥'){
+    return 'hearts'
+  }
+  else if (v === '♠'){
+    return 'spades'
+  }
+}
 
