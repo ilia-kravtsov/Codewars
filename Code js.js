@@ -363,6 +363,35 @@ Our deck (is preloaded):
 ('3♦') -> return 'diamonds'
 ('3♥') -> return 'hearts'
 ('3♠') -> return 'spades'
+
+Метод substr() возвращает указанное количество символов из строки, начиная с указанной позиции.
+
+const str = 'Mozilla';
+
+console.log(str.substr(1, 2));
+// expected output: "oz"
+
+console.log(str.substr(2));
+// expected output: "zilla"
+
+Метод substring() возвращает подстроку строки между двумя индексами, или от одного индекса и до конца строки.
+
+var anyString = 'Mozilla';
+
+// Отобразит 'Moz'
+console.log(anyString.substring(0, 3));
+console.log(anyString.substring(3, 0));
+
+// Отобразит 'lla'
+console.log(anyString.substring(4, 7));
+console.log(anyString.substring(7, 4));
+
+// Отобразит 'Mozill'
+console.log(anyString.substring(0, 6));
+
+// Отобразит 'Mozilla'
+console.log(anyString.substring(0, 7));
+console.log(anyString.substring(0, 10));
 */
 
 function defineSuit(card) {
