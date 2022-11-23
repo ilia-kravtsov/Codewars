@@ -461,3 +461,7 @@ let toCsvText = array => {
   let v = array.map(a => a.join(','))
   return v.join('\n')
 }
+
+//________________ Sum of differences in array
+
+sumOfDifferences = array_5 => array_5.length > 1 ? Math.max(...array_5) - Math.min(...array_5) : 0
