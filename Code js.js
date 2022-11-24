@@ -465,3 +465,7 @@ let toCsvText = array => {
 //________________ Sum of differences in array
 
 sumOfDifferences = array_5 => array_5.length > 1 ? Math.max(...array_5) - Math.min(...array_5) : 0
+
+// _______________ Multiple of index
+
+let multipleOfIndex = array => array.filter((element, index) => element % index === 0) 
