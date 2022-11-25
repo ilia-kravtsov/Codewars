@@ -469,3 +469,14 @@ sumOfDifferences = array_5 => array_5.length > 1 ? Math.max(...array_5) - Math.m
 // _______________ Multiple of index
 
 let multipleOfIndex = array => array.filter((element, index) => element % index === 0) 
+
+// _______________ Find the first non-consecutive number
+
+let firstNonConsecutive = arr => {
+  for(let i = 0; i < arr.length - 1; i++) {
+    if ( arr[i] + 1 !== arr[i + 1] ) {
+      return arr[i + 1]
+    }
+  }
+  return null
+}
