@@ -491,3 +491,85 @@ function findMultiples(integer, limit){
     
   return result
 }
+
+// _______________ Merge two sorted arrays into one
+
+console.log('-----------------------------------------');
+
+let arr1 = [1, 3, 5, 7, 9]
+let arr2 = [10, 8, 6, 4, 2]
+
+function mergeArrays(arr1, arr2) {
+
+  let arr3 = [...arr1, ...arr2]
+    
+  let array3 = new Set(arr3)
+  let array_3 = Array.from(array3)
+
+  let array_33 = array_3.sort((a,b) => a - b)
+  
+  console.log(array_33);
+    
+}
+
+mergeArrays(arr1,arr2)
+
+/* 
+Сортировка массива примеры:
+
+let array_33 = array_3.sort((a,b) => a - b) // (10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let array_33 = array_3.sort((a,b) => b - a) // (10) [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+let array_33 = array_3.sort((a,b) => b - b) // (10) [1, 3, 5, 7, 9, 10, 8, 6, 4, 2]
+let array_33 = array_3.sort((a,b) => a - a) // (10) [1, 3, 5, 7, 9, 10, 8, 6, 4, 2]
+
+Упрощаем код:
+
+Version 1
+
+function mergeArrays(arr1, arr2) {
+  return [...new Set(arr1.concat(arr2).sort((a,b) => a-b))] 
+}
+
+Version 2
+
+let mergeArrays = (arr1, arr2) => [...new Set(arr1.concat(arr2).sort((a,b) => a-b))] 
+
+Sample of concat:
+
+let array3 = arr1ArrayFrom.concat(arr2ArrayFrom)
+
+let arr3 = [...arr1, ...arr2]
+
+*/
+
+/* 
+__Checking for empty array
+
+arr1.length && arr2.length
+
+arr1.length !== 0 && arr2.length !==0
+*/
+
+/* 
+____The same task
+
+function mergeArrays(arr1, arr2) {
+  
+  if (arr1.length !== 0 && arr2.length !==0) {
+  
+  let arr3 = [...arr1, ...arr2]
+  
+  let array3 = new Set(arr3)
+  
+  let array_3 = Array.from(array3)
+  
+  let array_33 = array_3.sort((a,b) => a - b)
+  
+  return array_33
+    
+  }
+  else {
+    return []
+  }
+}
+*/
