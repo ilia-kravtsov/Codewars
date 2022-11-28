@@ -573,3 +573,16 @@ function mergeArrays(arr1, arr2) {
   }
 }
 */
+
+/* 
+__________________________________________ Filter out the geese
+*/
+
+function gooseFilter (birds) {
+  var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+  
+  return birds.filter( x => !geese.includes(x))
+};
+
+const GEESE = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+const gooseFilter = birds => birds.filter(bird => !GEESE.includes(bird));
