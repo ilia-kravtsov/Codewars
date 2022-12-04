@@ -656,3 +656,7 @@ function warnTheSheep(queue) {
   
 }
 
+function warnTheSheep(q) {
+  return q[q.length-1] === 'wolf' ? "Pls go away and stop eating my sheep" : `Oi! Sheep number ${q.length - (q.indexOf('wolf')+1)}! You are about to be eaten by a wolf!`
+}
+
