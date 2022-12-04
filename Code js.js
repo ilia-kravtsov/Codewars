@@ -578,14 +578,14 @@ function mergeArrays(arr1, arr2) {
 __________________________________________ Filter out the geese
 */
 
-function gooseFilter (birds) {
-  var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+// function gooseFilter (birds) {
+//   var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
   
-  return birds.filter( x => !geese.includes(x))
-};
+//   return birds.filter( x => !geese.includes(x))
+// };
 
-const GEESE = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
-const gooseFilter = birds => birds.filter(bird => !GEESE.includes(bird));
+// const GEESE = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+// const gooseFilter = birds => birds.filter(bird => !GEESE.includes(bird));
 
 /* Check Same Case */
 
@@ -613,3 +613,46 @@ function sameCase(a, b){
 function quadratic(x1, x2){
   return [1, -(x2 + x1), (x1 * x2)]
 }
+
+// A wolf in sheep's clothing
+
+let sheepsArray = ['sheep', 'sheep', 'sheep', 'sheep', 'sheep', 'wolf', 'sheep', 'sheep'];
+
+// const varWolf = sheepsArray.find((element) => element === 'wolf')
+
+// console.log(varWolf); // -> wolf
+
+const varWolf = sheepsArray.find((element) => element === 'wolf')
+
+console.log(varWolf);
+
+console.log(sheepsArray);
+// let EndOfArray = sheepsArray.length
+
+// console.log(EndOfArray);
+
+// let lastItem = sheepsArray.slice(-1)
+
+// console.log(lastItem);
+
+// if (sheepsArray.slice(-1) !== 'sheep') {
+//   return 'Pls go away and stop eating my sheep'
+// }
+// else {
+//   return 'Oi! Sheep number 1! You are about to be eaten by a wolf!'
+// }
+
+function warnTheSheep(queue) {
+  
+  let wolfIndex = queue.indexOf('wolf');
+  
+  if (wolfIndex === queue.length-1) {
+  return 'Pls go away and stop eating my sheep'
+  }
+
+  let sheepIndex = queue.length - wolfIndex - 1;
+  
+  return `Oi! Sheep number ${sheepIndex}! You are about to be eaten by a wolf!`
+  
+}
+
