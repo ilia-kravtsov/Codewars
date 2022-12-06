@@ -666,3 +666,7 @@ function getAverage(marks){
   return Math.floor(marks.reduce((sum,x)=>sum+x)/marks.length)
 }
 
+// To square(root) or not to square(root)
+
+squareOrSquareRoot = (array) => array.map(x=>Math.sqrt(x)%1?x*x:Math.sqrt(x))
+
