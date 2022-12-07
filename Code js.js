@@ -670,3 +670,9 @@ function getAverage(marks){
 
 squareOrSquareRoot = (array) => array.map(x=>Math.sqrt(x)%1?x*x:Math.sqrt(x))
 
+// I love you, a little , a lot, passionately ... not at all
+
+function howMuchILoveYou(nbPetals) {
+  return ['not at all','I love you', 'a little', 'a lot', 'passionately', 'madly'][nbPetals%6]
+}
+
