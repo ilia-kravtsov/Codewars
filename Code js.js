@@ -676,7 +676,7 @@ function howMuchILoveYou(nbPetals) {
   return ['not at all','I love you', 'a little', 'a lot', 'passionately', 'madly'][nbPetals%6]
 }
 
-// __________________ N-th Power
+// ___________________ N-th Power
 
 
 function index(array, n){
