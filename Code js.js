@@ -684,3 +684,7 @@ function index(array, n){
   return array[n] ** n || -1
 }
 
+
+// ______________________ Is there a vowel in there?
+
+isVow = a => a.map(x=>/[aeiou]/.test(String.fromCharCode(x))?String.fromCharCode(x):x)
