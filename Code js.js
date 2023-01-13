@@ -688,3 +688,12 @@ function index(array, n){
 // ______________________ Is there a vowel in there?
 
 isVow = a => a.map(x=>/[aeiou]/.test(String.fromCharCode(x))?String.fromCharCode(x):x)
+
+// _______________________Remove duplicates from list
+
+/* 
+При помощи Set() создается объект из уникальных значений. Неявное использование этого объекта позволяет удалить дубликаты из массива.
+Мы можем воспользоваться этим методом, только нужно будет еще преобразовать Set в новый массив. 
+*/
+
+const distinct = a => [...new Set(a)]
