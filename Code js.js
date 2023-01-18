@@ -711,3 +711,23 @@ Looking for more, loop-restrained fun? Check out the other kata in the series:
 */
 
 const check = (a,x) => a.includes(x, 0);
+
+// ______________________ Calculate average
+
+function findAverage(array) {
+
+  if (array.length === 0) {
+    return 0
+  }
+  
+  let CA = 0;
+  
+  for(let i = 0; i < array.length; i++) {
+    CA += array[i]
+  }
+  
+  CA = CA/array.length
+  
+  return CA
+   
+}
