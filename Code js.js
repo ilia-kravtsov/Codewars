@@ -787,3 +787,57 @@ function countPositivesSumNegatives(input) {
   return finalArray = [positiveArray.length, sumNegative]
 
 }
+
+// _______________________ pick a set of first elements
+
+/* 
+Write a function to get the first element(s) of a sequence. Passing a parameter n (default=1) will return the first n element(s) of the sequence.
+
+If n == 0 return an empty sequence []
+
+Examples
+var arr = ['a', 'b', 'c', 'd', 'e'];
+first(arr) //=> ['a'];
+first(arr, 2) //=> ['a', 'b']
+first(arr, 3) //=> ['a', 'b', 'c'];
+first(arr, 0) //=> [];
+*/
+
+function first(arr, n) {
+  if (n === 0) {
+      return []
+  }
+  if(n) {
+      return arr.splice(0,n)
+  }
+  if (!n) {
+      return [arr[0]];
+  } 
+}
+
+const first = (arr, n) => n === 0 ? [] : n ? arr.splice(0,n) : [arr[0]];
+
+const first = (arr, n = 1) => arr.slice(0, n)
+
+// _____________________________________ Sum of positive
+
+/* 
+You get an array of numbers, return the sum of all of the positives ones.
+
+Example [1,-4,7,12] => 1 + 7 + 12 = 20
+
+Note: if there is nothing to sum, the sum is default to 0.
+*/
+
+const positiveSum = arr => {
+  let positive = arr.filter(number => number > 0)
+  let sumPositive = 0
+  for (let i = 0; i < positive.length; i++) {
+      sumPositive += positive[i]             
+  }
+  return sumPositive;
+}
+
+// or
+
+const positiveSumm = arr => arr.filter(x => x > 0).reduce((a, b) => a+b, 0);
