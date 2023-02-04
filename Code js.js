@@ -862,3 +862,37 @@ const arr2bin = arr => arr.reduce((x,y) => x + (typeof y == 'number' ? y : 0), 0
 
 
 const uefaEuro2016 = (teams, scores) => `At match ${teams[0]} - ${teams[1]}, ${scores[0] > scores[1] ? `${teams[0]} won!` : scores[1] > scores[0] ? `${teams[1]} won!` : `teams played draw.`}`
+
+// ____________________________________________ Logical calculator
+
+/* 
+Your Task
+Given an array of Boolean values and a logical operator, return a Boolean result based on sequentially applying the operator to the values in the array.
+
+Examples
+booleans = [True, True, False], operator = "AND"
+True AND True -> True
+True AND False -> False
+return False
+booleans = [True, True, False], operator = "OR"
+True OR True -> True
+True OR False -> True
+return True
+booleans = [True, True, False], operator = "XOR"
+True XOR True -> False
+False XOR False -> False
+return False
+Input
+an array of Boolean values (1 <= array_length <= 50)
+a string specifying a logical operator: "AND", "OR", "XOR"
+Output
+A Boolean value (True or False).
+*/
+
+let operators = {
+  'AND': (a, b) => a && b,
+  'OR': (a, b) => a || b,
+  'XOR': (a, b) => a !== b,
+}
+
+const logicalCalc = (array, op) => array.reduce(operators[op])
