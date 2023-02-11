@@ -995,10 +995,29 @@ Same goes for all the other arrays/lists that you will get in the tests: you hav
 Simples!
 */
 const fixTheMeerkat=arr=>arr.reverse();
-// __________________________________________________ 
+// __________________________________________________ Implement Array.prototype.filter()
+
+Array.prototype.filter = function (filterFn) {
+  const result = []
+  for (let i = 0; i < this.length; i++) {
+      if ( filterFn(this[i])) {
+          result.push(this[i])
+      }
+  }
+  return result
+}
 
 /*
+Array.prototype.filter=function(fn){
+  return this.reduce((s,a)=>fn(a)?(s.push(a),s):s,[]);
+}
 
+What we want to implement is Array.prototype.filter() function, just like the existing Array.prototype.filter(). Another similar function is _.filter() in underscore.js and lodash.js.
+
+The usage will be quite simple, like:
+
+[1, 2, 3, 4, 5].filter(num => num > 3) == [4, 5]
+Of course, the existing Array.prototype.filter() function has been undefined for the purposes of this Kata.
 */
 
 // __________________________________________________ 
