@@ -1126,18 +1126,39 @@ Your task is to write a function that takes a String and returns an Array/list w
 Note: String will have at least one element; words will always be separated by a space.
 */
 const addLength = str => str.split(' ').map(w => `${w} ${w.length}`) 
-// __________________________________________________ 
+// __________________________________________________ Convert number to reversed array of digits
+
 
 /*
+Convert number to reversed array of digits
+Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
 
+Example(Input => Output):
+35231 => [1,3,2,5,3]
+0 => [0]
 */
+const digitize = n => (Array.from(String(n), Number)).reverse()
+// __________________________________________________ Count by X
 
-// __________________________________________________ 
 
 /*
+Create a function with two arguments that will return an array of the first n multiples of x.
 
+Assume both the given number and the number of times to count will be positive numbers greater than 0.
+
+Return the results as an array or list ( depending on language ).
+
+Examples
+countBy(1,10) === [1,2,3,4,5,6,7,8,9,10]
+countBy(2,5) === [2,4,6,8,10]
 */
-
+function countBy(x, n) {
+  let z = [];
+  for (let i = 1; i <= n; i++) {
+    z.push(x * i);
+  }
+  return z;
+}
 // __________________________________________________ 
 
 /*
