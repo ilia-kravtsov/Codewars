@@ -1187,17 +1187,39 @@ Example(Input1, Input2 --> Output)
 [1, 2, 3, 4, 5, 6], 2 --> [2, 4, 6]
 */
 const divisibleBy = (n, d) => n.filter(x => x % d == 0)
-// __________________________________________________ 
+// __________________________________________________ Basic Training: Add item to an Array
 
 /*
+Add the value "codewars" to the websites array.
+After your code executes the websites array should == ["codewars"]
 
+The websites array has already been defined for you using the following code:
+
+var websites = [];
 */
+websites.push("codewars")
+// __________________________________________________ Counting sheep...
 
-// __________________________________________________ 
 
 /*
+Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
 
+For example,
+
+[true,  true,  true,  false,
+  true,  true,  true,  true ,
+  true,  false, true,  false,
+  true,  false, false, true ,
+  true,  true,  true,  true ,
+  false, false, true,  true]
+The correct answer would be 17.
+
+Hint: Don't forget to check for bad values like null/undefined
+
+ARRAYSFUNDAMENTALS
+Suggest kata description edits
 */
+const countSheeps = arrayOfSheep => arrayOfSheep.filter(sheep => sheep).length
 
 // __________________________________________________ 
 
