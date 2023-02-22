@@ -1240,36 +1240,93 @@ Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Fun
 var ArrowFunc = function(arr) {
   return arr.map( x => String.fromCharCode(x)).join(''); //Complete this function
 }
-// __________________________________________________ 
+// __________________________________________________ Square(n) Sum
+
 
 /*
+Complete the square sum function so that it squares each number passed into it and then sums the results together.
 
+For example, for [1, 2, 2] it should return 9 because 
+1
+2
++
+2
+2
++
+2
+2
+=
+9
+1 
+2
+ +2 
+2
+ +2 
+2
+ =9.
 */
+function squareSum(numbers){
+  return numbers.reduce((sum,num) => sum + (num * num), 0);
+}
+const squareSum = numbers => numbers.length? numbers.map(number => number**2).reduce((a,b) => a+b): 0;
+// __________________________________________________ Push a hash/an object into array
 
-// __________________________________________________ 
 
 /*
-
+You are trying to put a hash in ruby or an object in javascript or java into an array, but it always returns error, solve it and keep it as simple as possible!
 */
+items = []
+items.push({a: "b", c: "d"})
+// __________________________________________________ Enumerable Magic #20 - Cascading Subsets
 
-// __________________________________________________ 
 
 /*
+Create a method each_cons that accepts a list and a number n, and returns cascading subsets of the list of size n, like so:
 
+each_cons([1,2,3,4], 2)
+  #=> [[1,2], [2,3], [3,4]]
+
+each_cons([1,2,3,4], 3)
+  #=> [[1,2,3],[2,3,4]]
+  
+As you can see, the lists are cascading; ie, they overlap, but never out of order.
 */
-
-// __________________________________________________ 
+function eachCons(array, n) {
+  let result = []
+  for (let i = 0; i < array.length; i++) {
+    result.push(array.slice(i, i +n))
+  }
+	return result.filter(each => each.length === n);
+}
+// __________________________________________________ Enumerable Magic #1 - True for All?
 
 /*
+Task
+Create a method all which takes two params:
 
+a sequence
+a function (function pointer in C)
+and returns true if the function in the params returns true for every element in the sequence. Otherwise, it should return false. If the sequence is empty, it should return true, since technically nothing failed the test.
+
+Example
+all((1, 2, 3, 4, 5), greater_than_9) -> false
+all((1, 2, 3, 4, 5), less_than_9)    -> True
 */
-
-// __________________________________________________ 
+function all( arr, fun ){
+  return arr.every(fun)
+}
+// __________________________________________________ Swap Values
 
 /*
+I would like to be able to pass an array with two elements to my swapValues function to swap the values. However it appears that the values aren't changing.
 
+Can you figure out what's wrong here?
 */
+const swapValues = args => [args[1], args[0]] = [args[0], args[1]]
 
+function swapValues(arr) {
+  return arr.reverse();
+}
 // __________________________________________________ 
 
 /*
