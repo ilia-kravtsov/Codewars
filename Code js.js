@@ -1416,18 +1416,45 @@ function sumTwoSmallestNumbers(numbers) {
   let [a,b] = numbers.sort((a,b) => a - b)
   return a + b
 }
-// __________________________________________________ 
+// __________________________________________________ Sum of odd numbers
+
 
 /*
+Given the triangle of consecutive odd numbers:
 
+             1
+          3     5
+       7     9    11
+   13    15    17    19
+21    23    25    27    29
+...
+Calculate the sum of the numbers in the nth row of this triangle (starting at index 1) e.g.: (Input --> Output)
+
+1 -->  1
+2 --> 3 + 5 = 8
 */
+const rowSumOddNumbers = n => n ** 3
+// __________________________________________________ Odd or Even?
 
-// __________________________________________________ 
 
 /*
+Given a list of integers, determine whether the sum of its elements is odd or even.
 
+Give your answer as a string matching "odd" or "even".
+
+If the input array is empty consider it as: [0] (array with a zero).
+
+Examples:
+Input: [0]
+Output: "even"
+
+Input: [0, 1, 4]
+Output: "odd"
+
+Input: [0, -1, -5]
+Output: "even"
 */
-
+const oddOrEven = a => a.reduce((a,b) => a + b, 0) % 2 === 0 ? 'even' : 'odd'
 // __________________________________________________ 
 
 /*
