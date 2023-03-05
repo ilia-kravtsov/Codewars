@@ -1497,12 +1497,21 @@ Remarks
 All arrays or lists will always have at least one element, so you don't need to check the length. Also, your function will always get an array or a list, you don't have to check for null, undefined or similar.
 */
 const minMax = arr => [ Math.min(...arr), Math.max(...arr) ];
-// __________________________________________________ 
+// __________________________________________________ Testing 1-2-3
 
 /*
+Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
 
+Write a function which takes a list of strings and returns each line prepended by the correct number.
+
+The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+
+Examples: (Input --> Output)
+
+[] --> []
+["a", "b", "c"] --> ["1: a", "2: b", "3: c"]
 */
-
+const number = a => a.map((lett,i) => `${i+1}: ${lett}`)
 // __________________________________________________ 
 
 /*
