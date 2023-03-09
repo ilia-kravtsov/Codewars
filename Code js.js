@@ -1560,48 +1560,99 @@ name + " does not play banjo"
 Names given are always valid strings.
 */
 const areYouPlayingBanjo = name => name[0] === 'r' || name[0] === 'R' ? `${name} plays banjo` : `${name} does not play banjo`
-// __________________________________________________ 
+// __________________________________________________ MakeUpperCase
+
 
 /*
-
+Write a function which converts the input string to uppercase.
 */
+const makeUpperCase = str => str.toUpperCase();
 
-// __________________________________________________ 
+// __________________________________________________ If you can't sleep, just count sheep!!
 
 /*
+If you can't sleep, just count sheep!!
 
+Task:
+Given a non-negative integer, 3 for example, return a string with a murmur: "1 sheep...2 sheep...3 sheep...". Input will always be valid, i.e. no negative integers.
 */
+const countSheep = num => {
+    let result = ''
+    for (let i = 1; i <= num; i++) {
+        result += `${i} sheep...`
+    }
+    return result
+}
+// __________________________________________________ Grasshopper - Personalized Message
 
-// __________________________________________________ 
 
 /*
+Create a function that gives a personalized greeting. This function takes two parameters: name and owner.
 
+Use conditionals to return the proper message:
 */
+const greet = (name, owner) => name === owner ? 'Hello boss' : 'Hello guest'
+// __________________________________________________ Remove exclamation marks
 
-// __________________________________________________ 
 
 /*
-
+Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
 */
+function removeExclamationMarks(s) {
+  return s.replace(/!/gi, '');
+}
+const removeExclamationMarks = s =>  s.split("").filter(w=> w !== '!').join("")
+// __________________________________________________ The Feast of Many Beasts
 
-// __________________________________________________ 
 
 /*
+All of the animals are having a feast! Each animal is bringing one dish. There is just one rule: the dish must start and end with the same letters as the animal's name. For example, the great blue heron is bringing garlic naan and the chickadee is bringing chocolate cake.
 
+Write a function feast that takes the animal's name and dish as arguments and returns true or false to indicate whether the beast is allowed to bring the dish to the feast.
+
+Assume that beast and dish are always lowercase strings, and that each has at least two letters. beast and dish may contain hyphens and spaces, but these will not appear at the beginning or end of the string. They will not contain numerals.
 */
+function feast(beast, dish) {
+	return beast[0] === dish[0] && beast[beast.length - 1] === dish[dish.length - 1]
+}
+// __________________________________________________ Double Char
 
-// __________________________________________________ 
 
 /*
+Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
 
+Examples (Input -> Output):
+* "String"      -> "SSttrriinngg"
+* "Hello World" -> "HHeelllloo  WWoorrlldd"
+* "1234!_ "     -> "11223344!!__  "
+Good Luck!
 */
+function doubleChar(str) {
+  return str.split('').map((w) => w+w).join('');
+}
+// __________________________________________________ All Star Code Challenge #18
 
-// __________________________________________________ 
 
 /*
+Create a function that accepts a string and a single character, and returns an integer of the count of occurrences the 2nd argument is found in the first one.
 
+If no occurrences can be found, a count of 0 should be returned.
+
+("Hello", "o")  ==>  1
+("Hello", "l")  ==>  2
+("", "z")       ==>  0
+str_count("Hello", 'o'); // returns 1
+str_count("Hello", 'l'); // returns 2
+str_count("", 'z'); // returns 0
+Notes
+The first argument can be an empty string
+In languages with no distinct character data type, the second argument will be a string of length 1
 */
-
+function strCount(str, letter){  
+  let result = 0
+  if (str) result = str.split('').map(w => w === letter ? 1 : 0).reduce((a,b) => a + b)
+  return result
+}
 // __________________________________________________ 
 
 /*
