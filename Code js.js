@@ -1675,42 +1675,102 @@ function stringy(size) {
   }
   return str
 }
-// __________________________________________________ 
+// __________________________________________________ Vowel remover
 
 /*
+Create a function called shortcut to remove the lowercase vowels (a, e, i, o, u ) in a given string.
 
+Examples
+"hello"     -->  "hll"
+"codewars"  -->  "cdwrs"
+"goodbye"   -->  "gdby"
+"HELLO"     -->  "HELLO"
+don't worry about uppercase vowels
+y is not considered a vowel for this kata
 */
-
-// __________________________________________________ 
+const shortcut = string => string.replace(/[aeiou]/g, '');
+// __________________________________________________ Short Long Short
 
 /*
+Given 2 strings, a and b, return a string of the form short+long+short, with the shorter string on the outside and the longer string on the inside. The strings will not be the same length, but they may be empty ( zero length ).
 
+Hint for R users:
+
+The length of string is not always the same as the number of characters
+For example: (Input1, Input2) --> output
+
+("1", "22") --> "1221"
+("22", "1") --> "1221"
 */
-
-// __________________________________________________ 
+const solution = (a, b) => a.length > b.length ? `${b}${a}${b}` : `${a}${b}${a}`;
+const solution = (a, b) => (a.length > b.length) ? b + a + b : a + b + a;
+// __________________________________________________ Exclamation marks series #1: Remove an exclamation mark from the end of string
 
 /*
+Remove an exclamation mark from the end of a string. For a beginner kata, you can assume that the input data is always a string, no need to verify it.
 
+Examples
+remove("Hi!") == "Hi"
+remove("Hi!!!") == "Hi!!"
+remove("!Hi") == "!Hi"
+remove("!Hi!") == "!Hi"
+remove("Hi! Hi!") == "Hi! Hi"
+remove("Hi") == "Hi"
 */
+const remove = s => s.slice(s.length - 1) === '!' ? s.slice(0, -1) : s ;
+function remove(s){
+    return s[s.length - 1] == '!' ? s.slice(0, -1) : s;
+}
+const remove = s => s.replace(/!$/, '');
+// __________________________________________________ Reversing Words in a String
 
-// __________________________________________________ 
 
 /*
+You need to write a function that reverses the words in a given string. A word can also fit an empty string. If this is not clear enough, here are some examples:
 
+As the input may have trailing spaces, you will also need to ignore unneccesary whitespace.
+
+Example (Input --> Output)
+
+"Hello World" --> "World Hello"
+"Hi There." --> "There. Hi"
+Happy coding!
 */
-
-// __________________________________________________ 
+const reverse = string => string.split(' ').reverse().join(' ')
+// __________________________________________________ Dollars and Cents
 
 /*
+The company you work for has just been awarded a contract to build a payment gateway. In order to help move things along, you have volunteered to create a function that will take a float and return the amount formatting in dollars and cents.
 
+39.99 becomes $39.99
+
+The rest of your team will make sure that the argument is sanitized before being passed to your function although you will need to account for adding trailing zeros if they are missing (though you won't have to worry about a dangling period).
+
+Examples:
+
+3 needs to become $3.00
+
+3.1 needs to become $3.10
+Good luck! Your team knows they can count on you!
 */
 
-// __________________________________________________ 
+// __________________________________________________ Dollars and Cents
 
 /*
+The company you work for has just been awarded a contract to build a payment gateway. In order to help move things along, you have volunteered to create a function that will take a float and return the amount formatting in dollars and cents.
 
+39.99 becomes $39.99
+
+The rest of your team will make sure that the argument is sanitized before being passed to your function although you will need to account for adding trailing zeros if they are missing (though you won't have to worry about a dangling period).
+
+Examples:
+
+3 needs to become $3.00
+
+3.1 needs to become $3.10
+Good luck! Your team knows they can count on you!
 */
-
+const formatMoney = amount => '$' + amount.toFixed(2)
 // __________________________________________________ 
 
 /*
