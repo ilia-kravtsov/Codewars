@@ -1771,42 +1771,177 @@ Examples:
 Good luck! Your team knows they can count on you!
 */
 const formatMoney = amount => '$' + amount.toFixed(2)
-// __________________________________________________ 
+// __________________________________________________ ES6 string addition
+
 
 /*
+It is easy to join two strings together like this string1 + string2.
 
+Another way to get the desired result would be with string1.concat(string2)
+
+ES6 has introduced another way of joining strings. Your task is to find out what this is and write a function that will add two strings together, there must be a space between the two strings.
+
++ , .concat() & .join() will not be allowed in this exercise. I have also removed some other methods that can be used to cheat!
+
+If one of the arguments is a number your code must coerce it into being a string.
 */
-
-// __________________________________________________ 
+function joinStrings(string1, string2){
+  return `${string1} ${string2}`
+}
+// __________________________________________________ String cleaning
 
 /*
+Your boss decided to save money by purchasing some cut-rate optical character recognition software for scanning in the text of old novels to your database. At first it seems to capture words okay, but you quickly notice that it throws in a lot of numbers at random places in the text.
 
+Examples (input -> output)
+'! !'                 -> '! !'
+'123456789'           -> ''
+'This looks5 grea8t!' -> 'This looks great!'
+Your harried co-workers are looking to you for a solution to take this garbled text and remove all of the numbers. Your program will take in a string and clean out all numeric characters, and return a string with spacing and special characters ~#$%^&!@*():;"'.,? all intact.
 */
-
-// __________________________________________________ 
+const stringClean = s => s.replace(/\d/g,"")
+// __________________________________________________ Alan Partridge II - Apple Turnover
 
 /*
+As a treat, I'll let you read part of the script from a classic 'I'm Alan Partridge episode:
 
+Lynn: Alan, there’s that teacher chap.
+Alan: Michael, if he hits me, will you hit him first?
+Michael: No, he’s a customer. I cannot hit customers. I’ve been told. I’ll go and get some stock.
+Alan: Yeah, chicken stock.
+Phil: Hello Alan.
+Alan: Lynn, hand me an apple pie. And remove yourself from the theatre of conflict.
+Lynn: What do you mean?
+Alan: Go and stand by the yakults. The temperature inside this apple turnover is 1,000 degrees. If I squeeze it, a jet of molten Bramley apple is going to squirt out. Could go your way, could go mine. Either way, one of us is going down.
+Alan is known for referring to the temperature of the apple turnover as Hotter than the sun!. According to space.com the temperature of the sun's corona is 2,000,000 degrees Celsius, but we will ignore the science for now.
+
+Task
+Your job is simple, if x squared is more than 1000, return It's hotter than the sun!!, else, return Help yourself to a honeycomb Yorkie for the glovebox.
+
+Note: Input will either be a positive integer (or a string for untyped languages).
 */
-
-// __________________________________________________ 
+const apple = x => x**2 > 1000 ? `It's hotter than the sun!!` : `Help yourself to a honeycomb Yorkie for the glovebox.`;
+// __________________________________________________ L1: Bartender, drinks!
 
 /*
+Complete the function that receives as input a string, and produces outputs according to the following table:
 
+Input	Output
+"Jabroni"	"Patron Tequila"
+"School Counselor"	"Anything with Alcohol"
+"Programmer"	"Hipster Craft Beer"
+"Bike Gang Member"	"Moonshine"
+"Politician"	"Your tax dollars"
+"Rapper"	"Cristal"
+anything else	"Beer"
+Note: anything else is the default case: if the input to the function is not any of the values in the table, then the return value should be "Beer".
+
+Make sure you cover the cases where certain words do not show up with correct capitalization. For example, the input "pOLitiCIaN" should still return "Your tax dollars".
 */
-
-// __________________________________________________ 
+function getDrinkByProfession(param){
+    switch (param.toLowerCase()) {
+        case "jabroni":
+            return 	"Patron Tequila";
+        case "school counselor":
+            return "Anything with Alcohol";
+        case "programmer":
+            return "Hipster Craft Beer";
+        case "bike gang member":
+            return "Moonshine";
+        case "politician":
+            return "Your tax dollars";
+        case "rapper":
+            return "Cristal";
+        default:
+            return "Beer"
+    }
+}
+// __________________________________________________Welcome to the City
 
 /*
+Create a method sayHello/say_hello/SayHello that takes as input a name, city, and state to welcome a person. Note that name will be an array consisting of one or more values that should be joined together with one space between each, and the length of the name array in test cases will vary.
 
+Example:
+
+sayHello(['John', 'Smith'], 'Phoenix', 'Arizona')
+This example will return the string Hello, John Smith! Welcome to Phoenix, Arizona!
 */
-
-// __________________________________________________ 
+function sayHello( name, city, state ) {
+    return `Hello, ${name.map(name => name).join(' ')}! Welcome to ${city}, ${state}!`
+}
+// __________________________________________________ Welcome!
 
 /*
+Your start-up's BA has told marketing that your website has a large audience in Scandinavia and surrounding countries. Marketing thinks it would be great to welcome visitors to the site in their own language. Luckily you already use an API that detects the user's location, so this is an easy win.
 
+The Task
+Think of a way to store the languages as a database (eg an object). The languages are listed below so you can copy and paste!
+Write a 'welcome' function that takes a parameter 'language' (always a string), and returns a greeting - if you have it in your database. It should default to English if the language is not in the database, or in the event of an invalid input.
+The Database
+english: 'Welcome',
+czech: 'Vitejte',
+danish: 'Velkomst',
+dutch: 'Welkom',
+estonian: 'Tere tulemast',
+finnish: 'Tervetuloa',
+flemish: 'Welgekomen',
+french: 'Bienvenue',
+german: 'Willkommen',
+irish: 'Failte',
+italian: 'Benvenuto',
+latvian: 'Gaidits',
+lithuanian: 'Laukiamas',
+polish: 'Witamy',
+spanish: 'Bienvenido',
+swedish: 'Valkommen',
+welsh: 'Croeso'
 */
+function greet(language) {
+    switch(language) {
+        case 'english': return 'Welcome';
+        case 'czech': return 'Vitejte';
+        case 'danish': return 'Velkomst';
+        case 'dutch': return 'Welkom';
+        case 'estonian': return 'Tere tulemast';
+        case 'finnish': return 'Tervetuloa';
+        case 'flemish': return 'Welgekomen';
+        case 'french': return 'Bienvenue';
+        case 'german': return 'Willkommen';
+        case 'irish': return 'Failte';
+        case 'italian': return 'Benvenuto';
+        case 'latvian': return 'Gaidits';
+        case 'lithuanian': return 'Laukiamas';
+        case 'polish': return 'Witamy';
+        case 'spanish': return 'Bienvenido';
+        case 'swedish': return 'Valkommen';
+        case 'welsh': return 'Croeso';
+        default: return 'Welcome';
+    }
+}
 
+function greet(lang) {
+    return langs[lang]||langs['english'];
+}
+
+var langs = {
+    'english': 'Welcome',
+    'czech': 'Vitejte',
+    'danish': 'Velkomst',
+    'dutch': 'Welkom',
+    'estonian': 'Tere tulemast',
+    'finnish': 'Tervetuloa',
+    'flemish': 'Welgekomen',
+    'french': 'Bienvenue',
+    'german': 'Willkommen',
+    'irish': 'Failte',
+    'italian': 'Benvenuto',
+    'latvian': 'Gaidits',
+    'lithuanian': 'Laukiamas',
+    'polish': 'Witamy',
+    'spanish': 'Bienvenido',
+    'swedish': 'Valkommen',
+    'welsh': 'Croeso'
+};
 // __________________________________________________ 
 
 /*
