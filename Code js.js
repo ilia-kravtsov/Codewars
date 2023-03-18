@@ -1965,18 +1965,35 @@ getNumberFromString(s)
 function getNumberFromString(s) {
   return +s.replace(/[^0-9]/g, '');
 }
-// __________________________________________________ 
+// __________________________________________________ Name on billboard
 
 /*
+You can print your name on a billboard ad. Find out how much it will cost you. Each character has a default price of £30, but that can be different if you are given 2 parameters instead of 1.
 
+You can not use multiplier "*" operator.
+
+If your name would be Jeong-Ho Aristotelis, ad would cost £600. 20 leters * 30 = 600 (Space counts as a character).
 */
-
-// __________________________________________________ 
+function billboard(name, price = 30){
+  let result = 0
+  for (let i = 0; i < name.length; i++) {
+    result += price
+  }
+  return result
+} 
+// __________________________________________________ Template Strings
 
 /*
-
+Task
+Your task is to return the correct string using the Template String Feature.
+Input
+Two Strings, no validation is needed.
+Output
+You must output a string containing the two strings with the word ```' are '```
 */
-
+var TempleStrings = function(obj, feature) {
+  return `${obj} are ${feature}`
+}
 // __________________________________________________ 
 
 /*
