@@ -2073,30 +2073,193 @@ var mapping = {
 function correctPolishLetters(text) {
   return text.split('').map(c => mapping[c] || c).join('');
 }
-// __________________________________________________ 
+// __________________________________________________ Simple Comparison?
+
 
 /*
+Write a function that will compare two values, one will be a number and one will be a string. Return true if they are the same character (regardless of their different data types) and return false if they are not.
 
+To make this challange harder and to promp the challenger to read up about coercion I have disabled some of the built in methods including .toString(), .join(), .split(), parseInt and .Number().
 */
+const add = (a, b) => +a === +b
+// __________________________________________________ Crash Override
 
-// __________________________________________________ 
 
 /*
+Every budding hacker needs an alias! The Phantom Phreak, Acid Burn, Zero Cool and Crash Override are some notable examples from the film Hackers.
 
+Your task is to create a function that, given a proper first and last name, will return the correct alias.
+
+Notes:
+Two objects that return a one word name in response to the first letter of the first name and one for the first letter of the surname are already given. See the examples below for further details.
+
+If the first character of either of the names given to the function is not a letter from A - Z, you should return "Your name must start with a letter from A - Z."
+
+Sometimes people might forget to capitalize the first letter of their name so your function should accommodate for these grammatical errors.
+
+Examples
+// These two objects are preloaded, you need to use them in your code
+var firstName = {A: 'Alpha', B: 'Beta', C: 'Cache' ...}
+var surname = {A: 'Analogue', B: 'Bomb', C: 'Catalyst' ...}
+
+aliasGen('Larry', 'Brentwood') === 'Logic Bomb'
+aliasGen('123abc', 'Petrovic') === 'Your name must start with a letter from A - Z.'
 */
+const firstLetter = str => str[0].toUpperCase()
 
-// __________________________________________________ 
+const isCorrectName = name => /[a-z]/gi.test(name)
+
+const aliasGen = (fName, sName) =>
+  isCorrectName(fName[0]) && isCorrectName(sName[0])
+    ? `${firstName[firstLetter(fName)]} ${surname[firstLetter(sName)]}`
+    : 'Your name must start with a letter from A - Z.'
+// __________________________________________________ Safen User Input Part I - htmlspecialchars
 
 /*
+Safen User Input Part I - htmlspecialchars
+You are a(n) novice/average/experienced/professional/world-famous Web Developer (choose one) who owns a(n) simple/clean/slick/beautiful/complicated/professional/business website (choose one or more) which contains form fields so visitors can send emails or leave a comment on your website with ease. However, with ease comes danger. Every now and then, a hacker visits your website and attempts to compromise it through the use of XSS (Cross Site Scripting). This is done by injecting script tags into the website through form fields which may contain malicious code (e.g. a redirection to a malicious website that steals personal information).
 
+Mission
+Your mission is to implement a function that converts the following potentially harmful characters:
+
+< --> &lt;
+> --> &gt;
+" --> &quot;
+& --> &amp;
 */
-
-// __________________________________________________ 
+function htmlspecialchars(formData) {
+  return formData.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+}
+// __________________________________________________ Subtract the Sum
 
 /*
+Subtract the sum
+NOTE! This kata can be more difficult than regular 8-kyu katas (lets say 7 or 6 kyu)
 
+Complete the function which get an input number n such that n >= 10 and n < 10000, then:
+
+Sum all the digits of n.
+Subtract the sum from n, and it is your new n.
+If the new n is in the list below return the associated fruit, otherwise return back to task 1.
+Example
+n = 325
+sum = 3+2+5 = 10
+n = 325-10 = 315 (not in the list)
+sum = 3+1+5 = 9
+n = 315-9 = 306 (not in the list)
+sum = 3+0+6 = 9
+n =306-9 = 297 (not in the list)
+.
+.
+.
+...until you find the first n in the list below.
+
+There is no preloaded code to help you. This is not about coding skills; think before you code
+
+1-kiwi
+2-pear
+3-kiwi
+4-banana
+5-melon
+6-banana
+7-melon
+8-pineapple
+9-apple
+10-pineapple
+11-cucumber
+12-pineapple
+13-cucumber
+14-orange
+15-grape
+16-orange
+17-grape
+18-apple
+19-grape
+20-cherry
+21-pear
+22-cherry
+23-pear
+24-kiwi
+25-banana
+26-kiwi
+27-apple
+28-melon
+29-banana
+30-melon
+31-pineapple
+32-melon
+33-pineapple
+34-cucumber
+35-orange
+36-apple
+37-orange
+38-grape
+39-orange
+40-grape
+41-cherry
+42-pear
+43-cherry
+44-pear
+45-apple
+46-pear
+47-kiwi
+48-banana
+49-kiwi
+50-banana
+51-melon
+52-pineapple
+53-melon
+54-apple
+55-cucumber
+56-pineapple
+57-cucumber
+58-orange
+59-cucumber
+60-orange
+61-grape
+62-cherry
+63-apple
+64-cherry
+65-pear
+66-cherry
+67-pear
+68-kiwi
+69-pear
+70-kiwi
+71-banana
+72-apple
+73-banana
+74-melon
+75-pineapple
+76-melon
+77-pineapple
+78-cucumber
+79-pineapple
+80-cucumber
+81-apple
+82-grape
+83-orange
+84-grape
+85-cherry
+86-grape
+87-cherry
+88-pear
+89-cherry
+90-apple
+91-kiwi
+92-banana
+93-kiwi
+94-banana
+95-melon
+96-banana
+97-melon
+98-pineapple
+99-apple
+100-pineapple
 */
-
+function SubtractSum(n){
+  return "apple"
+}
 // __________________________________________________ 
 
 /*
