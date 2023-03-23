@@ -2306,17 +2306,35 @@ function changeMe(moneyIn){
       default: return moneyIn
   }
 }
-// __________________________________________________ 
+// __________________________________________________ Flatten and sort an array
 
 /*
+Challenge:
 
+Given a two-dimensional array of integers, return the flattened version of the array with all the integers in the sorted (ascending) order.
+
+Example:
+
+Given [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]], your function should return [1, 2, 3, 4, 5, 6, 7, 8, 9].
+
+Addendum:
+
+Please, keep in mind, that JavaScript is by default sorting objects alphabetically. For more information, please consult:
 */
+const flattenAndSort = array => array.flat().sort((a, b) => a - b)
 
-// __________________________________________________ 
+// __________________________________________________ Sorted? yes? no? how?
+
 
 /*
+Complete the method which accepts an array of integers, and returns one of the following:
 
+"yes, ascending" - if the numbers in the array are sorted in an ascending order
+"yes, descending" - if the numbers in the array are sorted in a descending order
+"no" - otherwise
+You can assume the array will always be valid, and there will always be one correct answer.
 */
+const isSortedAndHow = array => JSON.stringify(array) === JSON.stringify([...array].sort((a, b) => a - b)) ? "yes, ascending" : JSON.stringify(array) === JSON.stringify([...array].sort((a, b) => b - a)) ? "yes, descending" : "no";
 
 // __________________________________________________ 
 
