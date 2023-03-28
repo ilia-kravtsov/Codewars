@@ -2502,30 +2502,59 @@ function rowWeights(array){
   }
   return arr;
 }
-// __________________________________________________ 
+// __________________________________________________ JavaScript Array Filter
+
 
 /*
+JavaScript Arrays support a filter function (starting in JavaScript 1.6). Use the filter functionality to complete the function given.
 
+The solution would work like the following:
+
+getEvenNumbers([2,4,5,6]) // should == [2,4,6]
 */
-
-// __________________________________________________ 
+function getEvenNumbers(numbersArray){
+  return numbersArray.filter(n => n % 2 === 0);
+}
+// __________________________________________________ Even numbers in an array
 
 /*
+Given an array of numbers, return a new array of length number containing the last even numbers from the original array (in the same order). The original array will be not empty and will contain at least "number" even numbers.
 
+For example:
+
+([1, 2, 3, 4, 5, 6, 7, 8, 9], 3) => [4, 6, 8]
+([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2) => [-8, 26]
+([6, -25, 3, 7, 5, 5, 7, -3, 23], 1) => [6]
 */
+const evenNumbers = (array, number) => array.filter(n => n % 2 === 0).slice(-number)
 
-// __________________________________________________ 
+// __________________________________________________ No oddities here
+
 
 /*
+Write a small function that returns the values of an array that are not odd.
 
+All values in the array will be integers. Return the good values in the order they are given.
 */
+const noOdds = values => values.filter(n => n % 2 === 0)
 
-// __________________________________________________ 
+// __________________________________________________ Convert an array of strings to array of numbers
+
 
 /*
+Oh no!
+Some really funny web dev gave you a sequence of numbers from his API response as an sequence of strings!
 
+You need to cast the whole array to the correct type.
+
+Create the function that takes as a parameter a sequence of numbers represented as strings and outputs a sequence of numbers.
+
+ie:["1", "2", "3"] to [1, 2, 3]
+
+Note that you can receive floats as well.
 */
-
+const toNumberArray = stringarray => stringarray.map(n => +n)
+const toNumberArray = stringarray => stringarray.map(Number);
 // __________________________________________________ 
 
 /*
