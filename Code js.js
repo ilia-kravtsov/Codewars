@@ -2555,18 +2555,59 @@ Note that you can receive floats as well.
 */
 const toNumberArray = stringarray => stringarray.map(n => +n)
 const toNumberArray = stringarray => stringarray.map(Number);
-// __________________________________________________ 
+// __________________________________________________ Maximum Product
 
 /*
+Given an array of integers , Find the maximum product obtained from multiplying 2 adjacent numbers in the array.
 
+Notes
+Array/list size is at least 2.
+
+Array/list numbers could be a mixture of positives, negatives also zeroes .
+
+Input >> Output Examples
+adjacentElementsProduct([1, 2, 3]); ==> return 6
+Explanation:
+The maximum product obtained from multiplying 2 * 3 = 6, and they're adjacent numbers in the array.
+adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48]); ==> return 50
+Explanation:
+Max product obtained from multiplying 5 * 10  =  50 .
+
+adjacentElementsProduct([-23, 4, -5, 99, -27, 329, -2, 7, -921])  ==>  return -14
+Explanation:
+The maximum product obtained from multiplying -2 * 7 = -14, and they're adjacent numbers in the array.
 */
-
-// __________________________________________________ 
+function adjacentElementsProduct(array) {
+  let result = [];
+  for (let i = 0; i < array.length-1; i++) {
+    result.push(array[i] * array[i+1])
+  }
+  return Math.max(...result)
+}
+// __________________________________________________ Minimize Sum Of Array (Array Series #1)
 
 /*
+Introduction and Warm-up (Highly recommended)
+Playing With Lists/Arrays Series
+Task
+Given an array of integers , Find the minimum sum which is obtained from summing each Two integers product .
+
+Notes
+Array/list will contain positives only .
+Array/list will always have even size
+Input >> Output Examples
+minSum({5,4,2,3}) ==> return (22) 
+Explanation:
+The minimum sum obtained from summing each two integers product ,  5*2 + 3*4 = 22
+minSum({12,6,10,26,3,24}) ==> return (342)
+Explanation:
+The minimum sum obtained from summing each two integers product ,  26*3 + 24*6 + 12*10 = 342
+minSum({9,2,8,7,5,4,0,6}) ==> return (74)
+Explanation:
+The minimum sum obtained from summing each two integers product ,  9*0 + 8*2 +7*4 +6*5 = 74
 
 */
-
+const minSum = arr => arr.sort((a, b) => a - b).reduce((acc, val) => acc + val * arr.pop(), 0)
 // __________________________________________________ 
 
 /*
