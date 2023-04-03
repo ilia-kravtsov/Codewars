@@ -2653,18 +2653,63 @@ function countDevelopers(list) {
 }
 const countDevelopers = list => list.filter(p => p.continent === 'Europe' && p.language === 'JavaScript').length
 
-// __________________________________________________ 
+// __________________________________________________ Fizz Buzz
 
 /*
+Return an array containing the numbers from 1 to N, where N is the parametered value.
 
+Replace certain values however if any of the following conditions are met:
+
+If the value is a multiple of 3: use the value "Fizz" instead
+If the value is a multiple of 5: use the value "Buzz" instead
+If the value is a multiple of 3 & 5: use the value "FizzBuzz" instead
+N will never be less than 1.
+
+Method calling example:
+
+fizzbuzz(3) -->  [1, 2, "Fizz"]
 */
-
-// __________________________________________________ 
+function fizzbuzz(n) {
+  let result = []
+  for (let i = 1; i <= n; i++) {
+      if (i <= n && i % 3 !== 0 && i % 5 !== 0) {
+        result.push(i)
+      } else if (i % 3 === 0 && i % 5 === 0) {
+        result.push('FizzBuzz')
+      } else if (i % 3 === 0) {
+        result.push('Fizz')
+      } else if (i % 5 === 0) {
+        result.push('Buzz')
+      } 
+  }
+  return result
+}
+// __________________________________________________ Create Your First CSS Grid
 
 /*
+Write a function partlist that gives all the ways to divide a list (an array) of at least two elements into two non-empty parts.
 
+Each two non empty parts will be in a pair (or an array for languages without tuples or a structin C - C: see Examples test Cases - )
+Each part will be in a string
+Elements of a pair must be in the same order as in the original array.
+Examples of returns in different languages:
+a = ["az", "toto", "picaro", "zone", "kiwi"] -->
+[["az", "toto picaro zone kiwi"], ["az toto", "picaro zone kiwi"], ["az toto picaro", "zone kiwi"], ["az toto picaro zone", "kiwi"]] 
 */
+  return arr.map((v, i) => [arr.slice(0, i).join(' '), arr.slice(i).join(' ')]).slice(1)
 
+  function partlist(arr) {
+    var newArray;
+    var returnArray=[];
+    for( var i=1; i<arr.length; i++){
+      newArray = [];
+      newArray.push(arr.slice(0,i).join(" "));
+      newArray.push(arr.slice(i).join(" "));
+      returnArray.push(newArray);
+    }
+    
+    return returnArray;
+}
 // __________________________________________________ 
 
 /*
