@@ -2767,6 +2767,7 @@ your function should return the following array:
 ];
 */
 const greetDevelopers = list => list.map(p => ({...p, greeting: `Hi ${p.firstName}, what do you like the most about ${p.language}?`}))
+const greetDevelopers = list => list.map(p => ({...p, greeting: `Hi ${p.firstName}, what do you like the most about ${p.language}?`}))
 // __________________________________________________ 
 
 /*
