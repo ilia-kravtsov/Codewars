@@ -2783,12 +2783,13 @@ Have fun!
 const maxDiff = list => list.length === 0 || list.length === 1 ? 0 : Math.max(...list) - Math.min(...list);
 const maxDiff = list => list.length ? Math.max(...list) - Math.min(...list) : 0;
 
-// __________________________________________________ 
+// __________________________________________________ Sum of Odd Cubed Numbers
+
 
 /*
-
+Find the sum of the odd numbers within an array, after cubing the initial integers. The function should return undefined if any of the values aren't numbers.
 */
-
+const cubeOdd = arr => arr.some(e => e !== +e) ? undefined : arr.map(n => n ** 3).reduce((acc, n) => n % 2 !== 0 ? acc + n : acc, 0)
 // __________________________________________________ 
 
 /*
