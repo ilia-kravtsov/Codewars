@@ -2955,18 +2955,51 @@ coffees = [4,3,2]       ->  22
 function barista(coffees){
   return coffees.sort((a,b) => a - b).reduce((acc, c, i) => acc + c * (coffees.length - i) + 2 * i, 0)
 }
-// __________________________________________________ 
+// __________________________________________________ Sum even numbers
 
 /*
+Complete the function that takes a sequence of numbers as single parameter. Your function must return the sum of the even values of this sequence.
 
+Only numbers without decimals like 4 or 4.0 can be even.
+
+The input is a sequence of numbers: integers and/or floats.
+
+Examples
+[4, 3, 1, 2, 5, 10, 6, 7, 9, 8]  -->  30   # because 4 + 2 + 10 + 6 + 8 = 30
+[]                               -->  0
 */
-
-// __________________________________________________ 
+const sumEvenNumbers = input => input.reduce((acc, n) => n % 2 === 0 ? acc + n : acc,0)
+// __________________________________________________ Odd-Even String Sort
 
 /*
+Given a string s. You have to return another string such that even-indexed and odd-indexed characters of s are grouped and groups are space-separated (see sample below)
 
+Note: 
+0 is considered to be an even index. 
+All input strings are valid with no spaces
+input: 'CodeWars'
+output 'CdWr oeas'
+
+S[0] = 'C'
+S[1] = 'o'
+S[2] = 'd'
+S[3] = 'e'
+S[4] = 'W'
+S[5] = 'a'
+S[6] = 'r'
+S[7] = 's'
+Even indices 0, 2, 4, 6, so we have 'CdWr' as the first group
+odd ones are 1, 3, 5, 7, so the second group is 'oeas'
+And the final string to return is 'Cdwr oeas'
+
+Enjoy.
 */
-
+function sortMyString(S) {
+  let even = ''
+  let odd = ''
+  for (let i = 0; i < S.length; i++) i % 2 === 0 ? even += S[i] : odd += S[i];
+  return `${even} ${odd}`
+}
 // __________________________________________________ 
 
 /*
