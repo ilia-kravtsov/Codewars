@@ -3065,18 +3065,27 @@ Given a string of words (x), you need to return an array of the words, sorted al
 If two words have the same last letter, they returned array should show them in the order they appeared in the given string.
 */
 const last = x => x.split(" ").sort((a, b) => a.charCodeAt(a.length-1) - b.charCodeAt(b.length-1));
-// __________________________________________________ 
+// __________________________________________________ Double Sort
 
 /*
+Simple enough this one - you will be given an array. The values in the array will either be numbers or strings, or a mix of both. You will not get an empty array, nor a sparse one.
 
+Your job is to return a single array that has first the numbers sorted in ascending order, followed by the strings sorted in alphabetic order. The values must maintain their original type
 */
-
-// __________________________________________________ 
+const dbSort = a => [...a.filter(n=>typeof n === "number").sort((a,b)=> a - b), ...a.filter( w => typeof w === "string").sort()];
+// __________________________________________________ Array.diff
 
 /*
+Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
 
+It should remove all values from list a, which are present in list b keeping their order.
+
+arrayDiff([1,2],[1]) == [2]
+If a value is present in b, all of its occurrences must be removed from the other:
+
+arrayDiff([1,2,2,2,3],[2]) == [1,3]
 */
-
+const arrayDiff = (a, b) => a.filter(n => !b.includes(n))
 // __________________________________________________ 
 
 /*
