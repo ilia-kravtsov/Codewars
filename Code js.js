@@ -3086,12 +3086,24 @@ If a value is present in b, all of its occurrences must be removed from the othe
 arrayDiff([1,2,2,2,3],[2]) == [1,3]
 */
 const arrayDiff = (a, b) => a.filter(n => !b.includes(n))
-// __________________________________________________ 
+// __________________________________________________ Create Phone Number
 
 /*
+Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
 
+Example
+createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // => returns "(123) 456-7890"
+The returned format must be correct in order to complete this challenge.
+
+Don't forget the space after the closing parentheses!
 */
-
+function createPhoneNumber(numbers){
+  let one = ''
+  let two = ''
+  let three = ''
+  numbers.map((n,i) => i < 3 ? one += n :  i < 6 ? two += n : three += n)
+  return `(${one}) ${two}-${three}`
+}
 // __________________________________________________ 
 
 /*
