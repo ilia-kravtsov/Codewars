@@ -3419,18 +3419,52 @@ function pairs(ar){
   }
   return result;
 };
-// __________________________________________________ 
+// __________________________________________________ Char Code Calculation
+
 
 /*
+Given a string, turn each character into its ASCII character code and join them together to create a number - let's call this number total1:
 
+'ABC' --> 'A' = 65, 'B' = 66, 'C' = 67 --> 656667
+Then replace any incidence of the number 7 with the number 1, and call this number 'total2':
+
+total1 = 656667
+              ^
+total2 = 656661
+              ^
+Then return the difference between the sum of the digits in total1 and total2:
+
+  (6 + 5 + 6 + 6 + 6 + 7)
+- (6 + 5 + 6 + 6 + 6 + 1)
+-------------------------
+                       6
 */
+function calc(x) {
+  const total1 = x
+    .split("")
+    .map((char) => char.charCodeAt(0))
+    .join("");
+  const total2 = total1.replace(/7/g, "1");
+  const sum1 = total1.split("").reduce((acc, curr) => acc + Number(curr), 0);
+  const sum2 = total2.split("").reduce((acc, curr) => acc + Number(curr), 0);
+  return sum1 - sum2;
+}
+// __________________________________________________ Sort the odd
 
-// __________________________________________________ 
 
 /*
+Task
+You will be given an array of numbers. You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
 
+Examples
+[7, 1]  =>  [1, 7]
+[5, 8, 6, 3, 4]  =>  [3, 8, 6, 5, 4]
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]  =>  [1, 8, 3, 6, 5, 4, 7, 2, 9, 0]
 */
-
+function sortArray(array) {
+  const oddArr = array.filter(num => num % 2 !== 0).sort((a, b) => a - b);
+  return array.map(num => num % 2 !== 0 ? oddArr.shift() : num);
+}
 // __________________________________________________ 
 
 /*
