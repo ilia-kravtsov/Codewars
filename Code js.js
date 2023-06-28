@@ -120,6 +120,14 @@ function popElement(arr){
   return arr;
 }
 
+// clean function example:
+
+function sum(a,b) {
+  return a + b
+}
+
+sum(3,4);
+
 // BP
 
 // const getLength = array => array.length;
