@@ -42,6 +42,11 @@ helloWorld = function() {
     var b=v3   //set number value to b
     return a%b;
   }
+  function equal6(){
+    var a=v6   //set number value to a
+    var b=v3   //set number value to b
+    return a%b;
+  }
 
 // BP
 
