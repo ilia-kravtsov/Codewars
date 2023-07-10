@@ -13,6 +13,7 @@ helloWorld = function() {
     console.log( str );
   }
 
+
 // Training JS #2: Basic data types--Number
 
   var v1=50;v2=100,v3=150,v4=200,v5=2,v6=250
@@ -820,6 +821,18 @@ first(arr, 2) //=> ['a', 'b']
 first(arr, 3) //=> ['a', 'b', 'c'];
 first(arr, 0) //=> [];
 */
+
+function first(arr, n) {
+  if (n === 0) {
+      return []
+  }
+  if(n) {
+      return arr.splice(0,n)
+  }
+  if (!n) {
+      return [arr[0]];
+  } 
+}
 
 function first(arr, n) {
   if (n === 0) {
