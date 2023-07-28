@@ -4349,3 +4349,115 @@ function countLanguages(list) {
   }
   return languages; 
 }
+
+// __________________________________________________Numbers to Letters
+
+
+/*
+Given an array of numbers (in string format), you must return a string. The numbers correspond to the letters of the alphabet in reverse order: a=26, z=1 etc. You should also account for '!', '?' and ' ' that are represented by '27', '28' and '29' respectively.
+
+All inputs will be valid.
+*/
+function switcher(x){
+  const alphabet = "zyxwvutsrqponmlkjihgfedcba!? "; 
+  let result = ""; 
+  for (let i = 0; i < x.length; i++) {
+    let number = +x[i]
+    result += alphabet[number - 1]; 
+  }
+  return result;
+}
+
+const alpha = ' zyxwvutsrqponmlkjihgfedcba!? '
+const switcher = x => x.map(item => alpha[item]).join('')
+// __________________________________________________Last Survivor
+
+
+/*
+You are given a string of letters and an array of numbers.
+The numbers indicate positions of letters that must be removed, in order, starting from the beginning of the array.
+After each removal the size of the string decreases (there is no empty space).
+Return the only letter left.
+
+Example:
+
+let str = "zbk", arr = [0, 1]
+    str = "bk", arr = [1]
+    str = "b", arr = []
+    return 'b'
+Notes
+The given string will never be empty.
+The length of the array is always one less than the length of the string.
+All numbers are valid.
+There can be duplicate letters and numbers.
+If you like this kata, check out the next one: Last Survivors Ep.2
+*/
+function lastSurvivor(letters, coords) {
+  let arrLetters = letters.split("");
+  
+  for (let i = 0; i < coords.length; i++) {
+    arrLetters.splice(coords[i], 1);
+  }
+  
+  return arrLetters[0];
+}
+// __________________________________________________Coding Meetup #6 - Higher-Order Functions Series - Can they code in the same language?
+
+
+/*
+You will be given an array of objects (associative arrays in PHP, tables in COBOL) representing data about developers who have signed up to attend the next coding meetup that you are organising.
+
+Your task is to return either:
+
+true if all developers in the list code in the same language; or
+false otherwise.
+For example, given the following input array:
+
+var list1 = [
+  { firstName: 'Daniel', lastName: 'J.', country: 'Aruba', continent: 'Americas', age: 42, language: 'JavaScript' },
+  { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 22, language: 'JavaScript' },
+  { firstName: 'Hanna', lastName: 'L.', country: 'Hungary', continent: 'Europe', age: 65, language: 'JavaScript' },
+];
+your function should return true.
+
+Notes:
+
+The strings representing a given language will always be formatted in the same way (e.g. 'JavaScript' will always be formatted will upper-case 'J' and 'S'
+The input array will always be valid and formatted as in the example above.
+*/
+const isSameLanguage = list => list.every(item => item.language === list[0].language)
+// __________________________________________________
+
+/*
+
+*/
+
+// __________________________________________________
+
+/*
+
+*/
+
+// __________________________________________________
+
+/*
+
+*/
+
+// __________________________________________________
+
+/*
+
+*/
+
+// __________________________________________________
+
+/*
+
+*/
+
+// __________________________________________________
+
+/*
+
+*/
