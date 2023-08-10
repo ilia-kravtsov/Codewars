@@ -4532,6 +4532,123 @@ const head = input => input[0];
 const tail = input => input.slice(1);
 const init = input => input.slice(0, input.length-1)
 const last = input => input[input.length-1]
+// __________________________________________________+1 Array
+
+
+/*
+Given an array of integers of any length, return an array that has 1 added to the value represented by the array.
+
+the array can't be empty
+only non-negative, single digit integers are allowed
+Return nil (or your language's equivalent) for invalid inputs.
+
+Examples
+Valid arrays
+
+[4, 3, 2, 5] would return [4, 3, 2, 6]
+[1, 2, 3, 9] would return [1, 2, 4, 0]
+[9, 9, 9, 9] would return [1, 0, 0, 0, 0]
+[0, 1, 3, 7] would return [0, 1, 3, 8]
+
+Invalid arrays
+
+[1, -9] is invalid because -9 is not a non-negative integer
+
+[1, 2, 33] is invalid because 33 is not a single-digit integer
+*/
+function upArray(arr){
+
+  if (arr.length === 0 || arr.some(num => num < 0 || num > 9)) {
+    return null; 
+  }
+  
+  arr[arr.length - 1]++;
+  
+  for (let i = arr.length - 1; i > 0; i--) {
+    if (arr[i] > 9) {
+      arr[i] = 0;
+      arr[i - 1]++;
+    } else {
+      break; 
+    }
+  }
+  
+  if (arr[0] > 9) {
+    arr[0] = 0;
+    arr.unshift(1);
+  }
+  
+  return arr;
+}
+// __________________________________________________Highest Rank Number in an Array
+
+/*
+Complete the method which returns the number which is most frequent in the given input array. If there is a tie for most frequent number, return the largest number among them.
+
+Note: no empty arrays will be given.
+
+Examples
+[12, 10, 8, 12, 7, 6, 4, 10, 12]              -->  12
+[12, 10, 8, 12, 7, 6, 4, 10, 12, 10]          -->  12
+[12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]  -->   3
+*/
+
+// __________________________________________________Highest Rank Number in an Array
+
+
+/*
+Complete the method which returns the number which is most frequent in the given input array. If there is a tie for most frequent number, return the largest number among them.
+
+Note: no empty arrays will be given.
+
+Examples
+[12, 10, 8, 12, 7, 6, 4, 10, 12]              -->  12
+[12, 10, 8, 12, 7, 6, 4, 10, 12, 10]          -->  12
+[12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]  -->   3
+*/
+function highestRank(arr){
+  const freqMap = {};
+    arr.forEach(num => {
+      freqMap[num] = (freqMap[num] || 0) + 1;
+    });
+
+    let maxFreq = 0;
+    let highestNum = 0;
+    for (const [num, freq] of Object.entries(freqMap)) {
+      if (freq > maxFreq || (freq === maxFreq && num > highestNum)) {
+        maxFreq = freq;
+        highestNum = num;
+      }
+    }
+
+    return parseInt(highestNum); 
+}
+// __________________________________________________Reverse every other word in the string
+
+/*
+Reverse every other word in a given string, then return the string. Throw away any leading or trailing whitespace, while ensuring there is exactly one space between each word. Punctuation marks should be treated as if they are a part of the word in this kata.
+*/
+const words = str.trim().split(/\s+/);
+  
+// Loop through the words and reverse every other word
+for (let i = 1; i < words.length; i += 2) {
+  words[i] = words[i].split('').reverse().join('');
+}
+
+// Join the words into a string with exactly one space between each word
+return words.join(' ');
+// __________________________________________________
+
+/*
+
+*/
+
+// __________________________________________________
+
+/*
+
+*/
+
 // __________________________________________________
 
 /*
