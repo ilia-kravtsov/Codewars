@@ -358,6 +358,14 @@ function contamination(text, char){
     }
     return sumOfPoints
   }
+//_____
+for (let i = 0; i < arr.length; i++) {
+
+    if (parseInt(arr[i]) % 2 !== 0) {
+
+      arr[i] = '-' + arr[i] + '-';
+
+   }
 
   // _____________________________________ Умножение массива на 2
 
