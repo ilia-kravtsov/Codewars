@@ -4751,13 +4751,116 @@ var solution = function(firstArray, secondArray) {
   }
   return sum / firstArray.length;
 }
-// __________________________________________________
+// __________________________________________________Pascal's Triangle
+
+/*
+In mathematics, Pascal's triangle is a triangular array of the binomial coefficients expressed with formula
+
+(
+�
+�
+)
+=
+�
+!
+�
+!
+(
+�
+−
+�
+)
+!
+( 
+k
+n
+​
+ )= 
+k!(n−k)!
+n!
+​
+ 
+where n denotes a row of the triangle, and k is a position of a term in the row.
+
+Pascal's Triangle
+
+You can read Wikipedia article on Pascal's Triangle for more information.
+
+Task
+Write a function that, given a depth n, returns n top rows of Pascal's Triangle flattened into a one-dimensional list/array.
+
+Example:
+n = 1: [1]
+n = 2: [1,  1, 1]
+n = 4: [1,  1, 1,  1, 2, 1,  1, 3, 3, 1]
+*/
+
+// __________________________________________________Coding Meetup #11 - Higher-Order Functions Series - Find the average age
+
+
+/*
+You will be given a sequence of objects representing data about developers who have signed up to attend the next coding meetup that you are organising.
+
+Given the following input array:
+
+var list1 = [
+  { firstName: 'Maria', lastName: 'Y.', country: 'Cyprus', continent: 'Europe', age: 30, language: 'Java' },
+  { firstName: 'Victoria', lastName: 'T.', country: 'Puerto Rico', continent: 'Americas', age: 70, language: 'Python' },
+];
+write a function that returns the average age of developers (rounded to the nearest integer). In the example above your function should return 50 (number).
+
+Notes:
+
+The input array will always be valid and formatted as in the example above.
+Age is represented by a number which can be any positive integer.
+
+*/
+
+const getAverageAge = list => Math.round(list.reduce((acc, number) => acc + number.age, 0) / list.length)
+
+//_______________________________________________________________
 
 /*
 
 */
 
-// __________________________________________________
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+
+//_______________________________________________________________
 
 /*
 
