@@ -4875,27 +4875,63 @@ function maxGap (numbers){
 
   return maxDiff;
 }
-//_______________________________________________________________
+//_______________________________________________________________Largest Elements
+
 
 /*
+Write a program that outputs the top n elements from a list.
 
+Example:
+
+largest(2, [7,6,5,4,3,2,1])
+// => [6,7]
 */
 
-
-//_______________________________________________________________
+const largest =(n, array) =>array.sort((a, b) => b - a).slice(0, n).sort((a, b) => a - b)
+//_______________________________________________________________Holiday III - Fire on the boat
 
 /*
+Enjoying your holiday, you head out on a scuba diving trip!
 
+Disaster!! The boat has caught fire!!
+
+You will be provided a string that lists many boat related items. If any of these items are "Fire" you must spring into action. Change any instance of "Fire" into "~~". Then return the string.
+
+Go to work!
 */
+const fireFight = s => s.replace(/Fire/g, '~~')
 
+//_______________________________________________________________Decipher this!
 
-//_______________________________________________________________
 
 /*
+You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
 
+For each word:
+
+the second and the last letter is switched (e.g. Hello becomes Holle)
+the first letter is replaced by its character code (e.g. H becomes 72)
+Note: there are no special characters used, only letters and spaces
+
+Examples
+
+decipherThis('72olle 103doo 100ya'); // 'Hello good day'
+decipherThis('82yade 115te 103o'); // 'Ready set go'
 */
 
-
+function decipherThis(str) {
+  let words = str.split(" ");
+  for (let i = 0; i < words.length; i++) {
+      let word = words[i];
+      let charCode = parseInt(word);
+      word = String.fromCharCode(charCode) + word.slice(String(charCode).length);
+      if (word.length > 2) {
+          word = word[0] + word[word.length - 1] + word.slice(2, word.length - 1) + word[1];
+      }
+      words[i] = word;
+  }
+  return words.join(" ");
+}; 
 //_______________________________________________________________
 
 /*
