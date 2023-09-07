@@ -5092,6 +5092,398 @@ function numberOfPairs(gloves) {
   return pairs;
 }
 
+//_______________________________________________________________Minimum Steps (Array Series #6)
+
+
+/*
+Task
+Given an array of N integers, you have to find how many times you have to add up the smallest numbers in the array until their Sum becomes greater or equal to K.
+
+Notes:
+List size is at least 3.
+
+All numbers will be positive.
+
+Numbers could occur more than once , (Duplications may exist).
+
+Threshold K will always be reachable.
+
+Input >> Output Examples
+minimumSteps({1, 10, 12, 9, 2, 3}, 6)  ==>  return (2)
+Explanation:
+We add two smallest elements (1 + 2), their sum is 3 .
+
+Then we add the next smallest number to it (3 + 3) , so the sum becomes 6 .
+
+Now the result is greater or equal to 6 , Hence the output is (2) i.e (2) operations are required to do this .
+
+minimumSteps({8 , 9, 4, 2}, 23)  ==> return (3)
+Explanation:
+We add two smallest elements (4 + 2), their sum is 6 .
+
+Then we add the next smallest number to it (6 + 8) , so the sum becomes 14 .
+
+Now we add the next smallest number (14 + 9) , so the sum becomes 23 .
+
+Now the result is greater or equal to 23 , Hence the output is (3) i.e (3) operations are required to do this .
+
+minimumSteps({19,98,69,28,75,45,17,98,67}, 464)  ==>  return (8)
+Explanation:
+We add two smallest elements (19 + 17), their sum is 36 .
+
+Then we add the next smallest number to it (36 + 28) , so the sum becomes 64 .
+
+We need to keep doing this until the sum becomes greater or equal to K (464 in this case), which will require 8 Steps .
+*/
+function minimumSteps(numbers, value){
+  numbers.sort((a, b) => a - b);
+  let sum = 0;
+  let steps = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+    steps++;
+
+    if (sum >= value) {
+      return steps - 1;
+    }
+  }
+
+  return -1;
+}
+//_______________________________________________________________Between Extremes
+
+
+/*
+Given an array of numbers, return the difference between the largest and smallest values.
+
+For example:
+
+[23, 3, 19, 21, 16] should return 20 (i.e., 23 - 3).
+
+[1, 434, 555, 34, 112] should return 554 (i.e., 555 - 1).
+
+The array will contain a minimum of two elements. Input data range guarantees that max-min will cause no integer overflow.
+*/
+function betweenExtremes(numbers) {
+  return Math.max(...numbers) - Math.min(...numbers);
+}
+
+const betweenExtremes = (numbers) =>  Math.max.apply(null,numbers) - Math.min.apply(null,numbers)
+//_______________________________________________________________Insert dashes
+
+
+/*
+Write a function insert_dash(num) / insertDash(num) / InsertDash(int num) that will insert dashes ('-') between each two odd digits in num. For example: if num is 454793 the output should be 4547-9-3.
+
+Note that the number will always be non-negative (>= 0).
+*/
+function insertDash(num) {
+  let stringOfNums = `${num}`
+  let result = ''
+  for (let i = 0; i < stringOfNums.length; i++) {
+    result += stringOfNums[i]
+    if (stringOfNums[i] % 2 !== 0 && stringOfNums[i+1] % 2 !== 0 && i !== stringOfNums.length - 1) {
+      result += '-'
+    }
+  }
+  return result
+}
+
+function insertDash(num) {
+  return num.toString().replace(/[13579](?=[13579])/g, "$&-");
+}
+//_______________________________________________________________Bingo ( Or Not )
+
+
+/*
+For this game of BINGO, you will receive a single array of 10 numbers from 1 to 26 as an input. Duplicate numbers within the array are possible.
+
+Each number corresponds to their alphabetical order letter (e.g. 1 = A. 2 = B, etc). Write a function where you will win the game if your numbers can spell "BINGO". They do not need to be in the right order in the input array. Otherwise you will lose. Your outputs should be "WIN" or "LOSE" respectively.
+*/
+function bingo(a) {
+  const alphabet = {
+    1: 'A',
+    2: 'B',
+    3: 'C',
+    4: 'D',
+    5: 'E',
+    6: 'F',
+    7: 'G',
+    8: 'H',
+    9: 'I',
+    10: 'J',
+    11: 'K',
+    12: 'L',
+    13: 'M',
+    14: 'N',
+    15: 'O',
+    16: 'P',
+    17: 'Q',
+    18: 'R',
+    19: 'S',
+    20: 'T',
+    21: 'U',
+    22: 'V',
+    23: 'W',
+    24: 'X',
+    25: 'Y',
+    26: 'Z'
+  };
+  let newArray = a.map(n => n = alphabet[n])
+  let result = ''
+  for (var i = 0; i < newArray.length; i++) {
+    if (newArray[i] === 'B' || newArray[i] === 'I' || newArray[i] === 'N' || newArray[i] === 'G' || newArray[i] === 'O') {
+      if (!result.includes(newArray[i])) {
+        result += newArray[i]
+      }
+    }
+  }
+  return result.includes('B') && result.includes('I') && result.includes('N') && result.includes('G') && result.includes('O') ? 'WIN' : 'LOSE';
+}
+
+const bingo = ar => [2,7,9,14,15].every(e => ar.includes(e)) ? 'WIN' : 'LOSE';
+function bingo(a) {  
+  return ([...'bingo']
+          .map(x => x.charCodeAt(0)-96)
+          .every(o => a.includes(o))) ? "WIN" : "LOSE" ;
+  
+   
+ }
+ function bingo(arr) {
+  let set = new Set(arr);
+  let count = 0;
+  let bingo = [2, 9, 14, 7, 15];
+  
+  for (let value of bingo) {
+      if (set.has(value)) count++
+      if (count === 5) return "WIN";
+  }
+
+  return 'LOSE';
+}
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
+//_______________________________________________________________
+
+/*
+
+*/
+
 //_______________________________________________________________
 
 /*
