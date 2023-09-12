@@ -12,8 +12,40 @@ helloWorld = function() {
     var str = "Hello World!";
     console.log( str );
   }
+//_____________codewars 
+//_____________return negative
+/*
+In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
 
+Examples
+makeNegative(1);    // return -1
+makeNegative(-5);   // return -5
+makeNegative(0);    // return 0
+makeNegative(0.12); // return -0.12
+Notes
+The number can be negative already, in which case no change is required.
+Zero (0) is not checked for any specific sign. Negative zeros make no mathematical sense.
+*/
+const makeNegative = num => num > 0 ? -num : num
+//_____________
+/*
 
+*/
+
+//_____________
+/*
+
+*/
+
+//_____________
+/*
+
+*/
+
+//_____________
+/*
+
+*/
 // Training JS #2: Basic data types--Number
 
   var v1=50;v2=100,v3=150,v4=200,v5=2,v6=250
@@ -1194,7 +1226,7 @@ Assume both the given number and the number of times to count will be positive n
 
 Return the results as an array or list ( depending on language ).
 
-Examples
+Examples for the 
 countBy(1,10) === [1,2,3,4,5,6,7,8,9,10]
 countBy(2,5) === [2,4,6,8,10]
 */
