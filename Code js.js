@@ -27,11 +27,11 @@ The number can be negative already, in which case no change is required.
 Zero (0) is not checked for any specific sign. Negative zeros make no mathematical sense.
 */
 const makeNegative = num => num > 0 ? -num : num
-//_____________
+//_____________convert boolean
 /*
-
+Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false.
 */
-
+const boolToWord = bool => bool ? 'Yes' : 'No';
 //_____________
 /*
 
