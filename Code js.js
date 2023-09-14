@@ -5458,30 +5458,131 @@ function findSenior(list) {
 	var maxAge = Math.max(...list.map(person => person.age));
 	return list.filter(person => person.age === maxAge);
 }
-//_______________________________________________________________
+//_______________________________________________________________Difference of 2
+
 
 /*
+The objective is to return all pairs of integers from a given array of integers that have a difference of 2.
 
+The result array should be sorted in ascending order of values.
+
+Assume there are no duplicate integers in the array. The order of the integers in the input array should not matter.
+
+Examples
+[1, 2, 3, 4]  should return [[1, 3], [2, 4]]
+
+[4, 1, 2, 3]  should also return [[1, 3], [2, 4]]
+
+[1, 23, 3, 4, 7] should return [[1, 3]]
+
+[4, 3, 1, 5, 6] should return [[1, 3], [3, 5], [4, 6]]
 */
+function twosDifference(input){
+  input.sort((a, b) => a - b);
 
-//_______________________________________________________________
+  let result = [];
+
+  for (let i = 0; i < input.length; i++) {
+    let current = input[i];
+    if (input.includes(current + 2)) {
+      result.push([current, current + 2]);
+    }
+  }
+
+  return result;
+}
+//_______________________________________________________________Primorial Of a Number
+
 
 /*
+Definition (Primorial Of a Number)
+Is similar to factorial of a number, In primorial, not all the natural numbers get multiplied, only prime numbers are multiplied to calculate the primorial of a number. It's denoted with P# and it is the product of the first n prime numbers.
+
+Task
+Given a number N , calculate its primorial.!alt!alt
+Notes
+Only positive numbers will be passed (N > 0) .
+Input >> Output Examples:
+1- numPrimorial (3) ==> return (30)
+Explanation:
+Since the passed number is (3) ,Then the primorial should obtained by multiplying 2 * 3 * 5 = 30 .
+
+Mathematically written as , P3# = 30 .
+2- numPrimorial (5) ==> return (2310)
+Explanation:
+Since the passed number is (5) ,Then the primorial should obtained by multiplying  2 * 3 * 5 * 7 * 11 = 2310 .
+
+Mathematically written as , P5# = 2310 .
+3- numPrimorial (6) ==> return (30030)
+Explanation:
+Since the passed number is (6) ,Then the primorial should obtained by multiplying  2 * 3 * 5 * 7 * 11 * 13 = 30030 .
+
+Mathematically written as , P6# = 30030 .
 
 */
+function numPrimorial(n){
+  let primes = []; 
+  let num = 2; 
 
-//_______________________________________________________________
+  while (primes.length < n) {
+    if (isPrime(num)) {
+      primes.push(num);
+    }
+    num++;
+  }
+
+  let primorial = primes.reduce(function(a, b) {
+    return a * b;
+  }, 1);
+
+  return primorial;
+}
+
+function isPrime(num) {
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return num > 1;
+}
+//_______________________________________________________________Array Deep Count
+
 
 /*
+You are given an array. Complete the function that returns the number of ALL elements within an array, including any nested arrays.
 
+Examples
+[]                   -->  0
+[1, 2, 3]            -->  3
+["x", "y", ["z"]]    -->  4
+[1, 2, [3, 4, [5]]]  -->  7
+The input will always be an array.
 */
+function deepCount(a) {
+  return JSON.stringify(a).replace(/[^[,]|\[]/g, '').length;
+}
+//_______________________________________________________________Coding Meetup #8 - Higher-Order Functions Series - Will all continents be represented?
 
-//_______________________________________________________________
 
 /*
+You will be given a sequence of objects (associative arrays in PHP) representing data about developers who have signed up to attend the next coding meetup that you are organising.
 
+Your task is to return:
+
+true if all of the following continents / geographic zones will be represented by at least one developer: 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'.
+false otherwise.
+For example, given the following input array:
+
+var list1 = [
+  { firstName: 'Fatima', lastName: 'A.', country: 'Algeria', continent: 'Africa', age: 25, language: 'JavaScript' },
+  { firstName: 'Agustín', lastName: 'M.', country: 'Chile', continent: 'Americas', age: 37, language: 'C' },
+  { firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 39, language: 'Ruby' },
+  { firstName: 'Laia', lastName: 'P.', country: 'Andorra', continent: 'Europe', age: 55, language: 'Ruby' },
+  { firstName: 'Oliver', lastName: 'Q.', country: 'Australia', continent: 'Oceania', age: 65, language: 'PHP' },
+];
 */
-
+const allContinents = list => ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'].every(continent => list.some(dev => dev.continent === continent));
 //_______________________________________________________________
 
 /*
