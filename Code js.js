@@ -5728,30 +5728,91 @@ function arithmeticSequenceElements(a, d, n) {
   }
   return result.join(', ')
 }
-//_______________________________________________________________
+//_______________________________________________________________Flatten
+
 
 /*
+Write a function that flattens an Array of Array objects into a flat Array. Your function must only do one level of flattening.
 
+flatten([1,2,3]) // => [1,2,3]
+flatten([[1,2,3],["a","b","c"],[1,2,3]])  // => [1,2,3,"a","b","c",1,2,3]
+flatten([[[1,2,3]]]) // => [[1,2,3]]
 */
+const flatten = array => array.flat();
+//_______________________________________________________________Number Of Occurrences
 
-//_______________________________________________________________
 
 /*
+Write a function that returns the number of occurrences of an element in an array.
 
+This function will be defined as a property of Array with the help of the method Object.defineProperty, which allows to define a new method directly on the object (more info about that you can find on MDN).
+
+Examples
+var arr = [0, 1, 2, 2, 3];
+arr.numberOfOccurrences(0) === 1;
+arr.numberOfOccurrences(4) === 0;
+arr.numberOfOccurrences(2) === 2;
+arr.numberOfOccurrences(3) === 1;
 */
+Object.defineProperty(Array.prototype, 'numberOfOccurrences',{ 
+  value : function numberOfOccurrences(element) {
+    let count = 0;
+    for (let i = 0; i < this.length; i++) {
+      if (this[i] === element) {
+        count++;
+      }
+    }
+    return count;
+  }
+});
+//_______________________________________________________________By 3, or not by 3? That is the question . . .
 
-//_______________________________________________________________
 
 /*
+A trick I learned in elementary school to determine whether or not a number was divisible by three is to add all of the integers in the number together and to divide the resulting sum by three. If there is no remainder from dividing the sum by three, then the original number is divisible by three as well.
 
+Given a series of digits as a string, determine if the number represented by the string is divisible by three.
+
+Example:
+
+"123"      -> true
+"8409"     -> true
+"100853"   -> false
+"33333333" -> true
+"7"        -> false
 */
+function divisibleByThree(str){
+  let result = false
+  for (let i = 0; i < str.length; i++) {
+    result += +str[i]
+  }
+  return result % 3 === 0
+}
 
-//_______________________________________________________________
+function divisibleByThree(str){
+  return [...str].reduce((s,d)=>+d+s,0)%3===0;
+}
+//_______________________________________________________________Check three and two
 
 /*
+Given an array with exactly 5 strings "a", "b" or "c" (chars in Java, characters in Fortran), check if the array contains three and two of the same values.
 
+Examples
+["a", "a", "a", "b", "b"] ==> true  // 3x "a" and 2x "b"
+["a", "b", "c", "b", "c"] ==> false // 1x "a", 2x "b" and 2x "c"
+["a", "a", "a", "a", "a"] ==> false // 5x "a"
 */
-
+function checkThreeAndTwo(array) {
+  const count = {};
+  
+  for (let i = 0; i < array.length; i++) {
+    count[array[i]] = (count[array[i]] || 0) + 1;
+  }
+  
+  const values = Object.values(count);
+  
+  return values.includes(3) && values.includes(2);
+}
 //_______________________________________________________________
 
 /*
