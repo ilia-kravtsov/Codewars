@@ -5864,30 +5864,148 @@ function newAvg(arr, newavg) {
   const nextDonation = Math.ceil(remainingSum);
   return nextDonation;
 }
-//_______________________________________________________________
+//_______________________________________________________________Latin Squares
+
 
 /*
+A latin square is an n × n array filled with the integers 1 to n, each occurring once in each row and column.
 
+Here are examples of latin squares of size 4 and 7:
+
+[[1, 4, 3, 2],      [[2, 3, 1, 7, 4, 6, 5], 
+ [4, 3, 2, 1],       [7, 1, 6, 5, 2, 4, 3], 
+ [3, 2, 1, 4],       [6, 7, 5, 4, 1, 3, 2], 
+ [2, 1, 4, 3]]       [4, 5, 3, 2, 6, 1, 7], 
+                     [5, 6, 4, 3, 7, 2, 1], 
+                     [1, 2, 7, 6, 3, 5, 4], 
+                     [3, 4, 2, 1, 5, 7, 6]]
+Latin squares have many practical uses, for example in error-correcting-codes and the design of agricultural experiments. See https://en.wikipedia.org/wiki/Latin_square for more details. Sudoku is a special type of 9 x 9 latin square, with additional conditions.
+
+Task: Write a function that returns a latin square for any positive integer n.
 */
+function makeLatinSquare(n) {
+  const square = Array.from(Array(n), () => new Array(n));
+  const numbers = Array.from(Array(n), (_, i) => i + 1);
 
-//_______________________________________________________________
+  for (let i = 0; i < n; i++) {
+    const shiftedNumbers = [...numbers.slice(i), ...numbers.slice(0, i)];
+    square[i] = shiftedNumbers;
+  }
+
+  return square;
+}
+//_______________________________________________________________Mysterious Singularity Numbers
+
 
 /*
+Task
+The point is that a natural number N (1 <= N <= 10^9) is given. You need to write a function which finds the number of natural numbers not exceeding N and not divided by any of the numbers [2, 3, 5].
 
+Example
+Let's take the number 5 as an example:
+
+1 - doesn't divide integer by 2, 3, and 5
+2 - divides integer by 2
+3 - divides integer by 3
+4 - divides integer by 2
+5 - divides integer by 5
+Answer: 1
+
+because only one number doesn't divide integer by any of 2, 3, 5
+
+Note
+Again, try to think of a formula that will shorten your solution and help you pass big tests.
+
+Good luck :)
 */
+function realNumbers(n){
+  const countDivisible = (num, factor) => Math.floor(num / factor);
 
-//_______________________________________________________________
+  const countDivisibleByFactors = (num, factors) => {
+    let count = 0;
+    for (const factor of factors) {
+      count += countDivisible(num, factor);
+    }
+    return count;
+  };
+
+  const factors = [2, 3, 5];
+  const total = n;
+  const divisible = countDivisibleByFactors(n, factors);
+  const divisibleByTwoFactors = countDivisibleByFactors(n, [2 * 3, 2 * 5, 3 * 5]);
+  const divisibleByAllFactors = countDivisibleByFactors(n, [2 * 3 * 5]);
+
+  const result = total - divisible + divisibleByTwoFactors - divisibleByAllFactors;
+  return result;
+}
+//_______________________________________________________________Add property to every object in array
+
 
 /*
+Your task is to add a new property usersAnswer to every object in the array questions. The value of usersAnswer should be set to null. The solution should work for array of any length.
 
+For example:
+
+var questions = [{
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0
+}, {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's Pub", "China"],
+    corAnswer: 0
+}];
+After adding the property the result should be:
+
+var questions = [{
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0,
+    usersAnswer: null
+}, {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's pub", "China"],
+    corAnswer: 0,
+    usersAnswer: null
+}];
 */
+questions.forEach(function (i) {
+  i.usersAnswer = null;
+});
 
-//_______________________________________________________________
+const addUsersAnswer = array => array.map(user => ({...user, usersAnswer: null}))
+questions = addUsersAnswer(questions);
+//_______________________________________________________________Computer problem series #1: Fill the Hard Disk Drive
+
 
 /*
+Your task is to determine how many files of the copy queue you will be able to save into your Hard Disk Drive. The files must be saved in the order they appear in the queue.
 
+Input:
+Array of file sizes (0 <= s <= 100)
+Capacity of the HD (0 <= c <= 500)
+Output:
+Number of files that can be fully saved in the HD.
+Examples:
+save([4,4,4,3,3], 12) -> 3
+# 4+4+4 <= 12, but 4+4+4+3 > 12
+save([4,4,4,3,3], 11) -> 2
+# 4+4 <= 11, but 4+4+4 > 11
+Do not expect any negative or invalid inputs.
 */
-
+function save(sizes, hd) {
+  let sum = 0
+  let result = 0
+  for (let i = 0; i < sizes.length; i++) {
+      if (sum + sizes[i] <= hd) {
+          sum += sizes[i]
+          result++
+      } else {
+          break
+      }
+  }
+  return result
+}
 //_______________________________________________________________
 
 /*
