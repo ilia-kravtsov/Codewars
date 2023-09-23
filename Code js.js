@@ -6006,6 +6006,161 @@ function save(sizes, hd) {
   }
   return result
 }
+// ___________________________________________Return the Missing Element
+
+
+/*
+Fellow code warrior, we need your help! We seem to have lost one of our sequence elements, and we need your help to retrieve it!
+
+Our sequence given was supposed to contain all of the integers from 0 to 9 (in no particular order), but one of them seems to be missing.
+
+Write a function that accepts a sequence of unique integers between 0 and 9 (inclusive), and returns the missing element.
+
+Examples:
+[0, 5, 1, 3, 2, 9, 7, 6, 4] --> 8
+[9, 2, 4, 5, 7, 0, 8, 6, 1] --> 3
+ */
+function getMissingElement(superImportantArray){
+  for (i = 0; i < 10; i++) {
+    if (superImportantArray.indexOf(i) === -1) return i;
+  }
+}
+
+function getMissingElement(superImportantArray){
+  const store = [0,1,2,3,4,5,6,7,8,9]
+  const sorted = superImportantArray.sort()
+  
+  let result = 0
+  for (let i = 0; i < store.length; i++) {
+      if (store[i] === sorted[i]) {
+          result = sorted[i] + 1
+      }
+  }
+  return result
+}
+// ___________________________________________Nice Array
+
+
+/*
+A Nice array is defined to be an array where for every value n in the array, there is also an element n - 1 or n + 1 in the array.
+
+examples:
+
+[2, 10, 9, 3] is a nice array because
+
+ 2 =  3 - 1
+10 =  9 + 1
+ 3 =  2 + 1
+ 9 = 10 - 1
+
+[4, 2, 3] is a nice array because
+
+4 = 3 + 1
+2 = 3 - 1
+3 = 2 + 1 (or 3 = 4 - 1)
+
+[4, 2, 1] is a not a nice array because
+
+for n = 4, there is neither n - 1 = 3 nor n + 1 = 5
+Write a function named isNice/IsNice that returns true if its array argument is a Nice array, else false. An empty array is not considered nice.
+ */
+function isNice(arr) {
+  if (arr.length === 0) {
+    return false;
+  }
+  
+  for (let i = 0; i < arr.length; i++) {
+    let found = false;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j] === arr[i] - 1 || arr[j] === arr[i] + 1) {
+        found = true;
+        break;
+      }
+    }
+    
+    if (!found) {
+      return false;
+    }
+  }
+  
+  return true;
+}
+// ___________________________________________How many are smaller than me?
+
+/*
+Write a function that given, an array arr, returns an array containing at each index i the amount of numbers that are smaller than arr[i] to the right.
+
+For example:
+
+* Input [5, 4, 3, 2, 1] => Output [4, 3, 2, 1, 0]
+* Input [1, 2, 0] => Output [1, 1, 0]
+If you've completed this one and you feel like testing your performance tuning of this same kata, head over to the much tougher version How many are smaller than me II?
+ */
+function smaller(nums) {
+  const result = [];
+  for (let i = 0; i < nums.length; i++) {
+    let count = 0;
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[j] < nums[i]) count++;
+    }
+    result.push(count);
+  }
+  return result;
+}
+// ___________________________________________Drone Fly-By
+
+
+/*
+The other day I saw an amazing video where a guy hacked some wifi controlled lightbulbs by flying a drone past them. Brilliant.
+
+In this kata we will recreate that stunt... sort of.
+
+You will be given two strings: lamps and drone. lamps represents a row of lamps, currently off, each represented by x. When these lamps are on, they should be represented by o.
+
+The drone string represents the position of the drone T (any better suggestion for character??) and its flight path up until this point =. The drone always flies left to right, and always begins at the start of the row of lamps. Anywhere the drone has flown, including its current position, will result in the lamp at that position switching on.
+
+Return the resulting lamps string. See example tests for more clarity.
+ */
+function flyBy(lamps, drone){
+  const lampArray = lamps.split(''); 
+ 
+   for (let i = 0; i < drone.length && i < lampArray.length; i++) {
+     lampArray[i] = 'o';
+   }
+ 
+   return lampArray.join(''); 
+ }
+// ___________________________________________Evens times last
+
+
+/*
+Given a sequence of integers, return the sum of all the integers that have an even index (odd index in COBOL), multiplied by the integer at the last index.
+
+Indices in sequence start from 0.
+
+If the sequence is empty, you should return 0.
+ */
+function evenLast(numbers) {
+  if (numbers.length === 0) {
+    return 0
+  } else {
+    let sumEven = 0
+    for (let i = 0; i < numbers.length; i++) {
+        if (i % 2 === 0) {
+            sumEven += numbers[i]
+        }
+    }
+    return sumEven * numbers[numbers.length - 1]
+  }
+}
+function evenLast(numbers) {
+  if (numbers.length === 0) return 0;
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i += 2) {
+    sum += numbers[i];
+  }
+  return sum * numbers[numbers.length - 1];
+}
 //_______________________________________________________________
 
 /*
