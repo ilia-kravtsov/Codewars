@@ -6161,18 +6161,72 @@ function evenLast(numbers) {
   }
   return sum * numbers[numbers.length - 1];
 }
-//_______________________________________________________________
+//_______________________________________________________________Find how many times did a team from a given country win the Champions League?
 
 /*
+Create a function that takes two arguments:
 
+An array of objects which feature the season, the team and the country of the Champions League winner.
+
+Country (as a string, for example, 'Portugal')
+
+You function should then return the number which represents the number of times a team from a given country has won. Return 0 if there have been no wins.
+
+For example if the input array is as follows:
+
+
+countWins(winnerList1, 'Spain') => should return 2
+countWins(winnerList1, 'Portugal') => should return 1
+countWins(winnerList1, 'Sportland') => should return 0
 */
+function countWins(winnerList, country) {
+  let result = 0
+  for (let i = 0; i < winnerList.length; i++) {
+       if (winnerList[i].country === country) {
+           result++
+       }
+  }
+  return result
+}
+const countWins = (w, c) => w.filter(a=>a.country === c).length;
+//_______________________________________________________________Coding Meetup #12 - Higher-Order Functions Series - Find GitHub admins
 
-//_______________________________________________________________
 
 /*
+You will be given an array of objects representing data about developers who have signed up to attend the next coding meetup that you are organising.
 
+Given the following input array:
+
+var list1 = [
+  { firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 22, language: 'JavaScript', githubAdmin: 'yes' },
+  { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 49, language: 'Ruby', githubAdmin: 'no' },
+  { firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 34, language: 'JavaScript', githubAdmin: 'yes' },
+  { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'JavaScript', githubAdmin: 'no' }
+];
+write a function that when executed as findAdmin(list1, 'JavaScript') returns only the JavaScript developers who are GitHub admins:
+
+[
+  { firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 22, language: 'JavaScript', githubAdmin: 'yes' },
+  { firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 34, language: 'JavaScript', githubAdmin: 'yes' }
+]
+Notes:
+
+The original order should be preserved.
+If there are no GitHub admin developers in a given language then return an empty array [].
+The input array will always be valid and formatted as in the example above.
+The strings representing whether someone is a GitHub admin will always be formatted as 'yes' and 'no' (all lower-case).
+The strings representing a given language will always be formatted in the same way (e.g. 'JavaScript' will always be formatted with upper-case 'J' and 'S'.
 */
-
+function findAdmin(list, lang) {
+  //     let result = []
+  //     for (let i = 0; i < list.length; i++) { 
+  //         if (list[i].language === lang && list[i].githubAdmin === 'yes') {
+  //             result.push(list[i]) 
+  //         }
+  //     }
+  //     return result 
+         return list.filter(dev => dev.language === lang && dev.githubAdmin === 'yes')
+  } 
 //_______________________________________________________________
 
 /*
