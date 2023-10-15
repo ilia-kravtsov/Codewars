@@ -1947,6 +1947,21 @@ This example will return the string Hello, John Smith! Welcome to Phoenix, Arizo
 function sayHello( name, city, state ) {
     return `Hello, ${name.map(name => name).join(' ')}! Welcome to ${city}, ${state}!`
 }
+//_____________________ Disemvowel Trolls
+
+/*
+Trolls are attacking your comment section!
+
+A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+*/
+
+function disemvowel(str) {
+  return str.replace(/[aeiou]/gi, '');
+}
 // __________________________________________________ Welcome!
 
 /*
