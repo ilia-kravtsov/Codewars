@@ -1,4 +1,4 @@
-
+ДД
 // Training JS #1: create your first JS function and print "Hello World!"
 
 function helloWorld() {
@@ -4242,6 +4242,57 @@ pageItemCount(pageIndex) {
 pageIndex(itemIndex) {
   if (itemIndex < 0 || itemIndex >= this.itemCount()) return -1;
   return Math.floor(itemIndex / this.itemsPerPage);
+}
+//________________________
+function encrypt(text, n) {
+  if (!text || n <= 0) {
+    return text;
+  }
+
+  let textArray = text.split('');
+
+  while (n > 0) {
+    let evenIndexArray = [];
+    let oddIndexArray = [];
+
+    for (let i = 0; i < textArray.length; i++) {
+      if (i % 2 === 0) {
+        evenIndexArray.push(textArray[i]);
+      } else {
+        oddIndexArray.push(textArray[i]);
+      }
+    }
+
+    textArray = oddIndexArray.concat(evenIndexArray);
+    n--;
+  }
+
+  return textArray.join('');
+}
+
+function decrypt(encryptedText, n) {
+ if (!encryptedText || n <= 0) {
+    return encryptedText;
+  }
+
+  while (n > 0) {
+    let decryptedTextArray = new Array(encryptedText.length);
+
+    for (let i = 0, j = 0, k = Math.floor((encryptedText.length) / 2); i < encryptedText.length; i += 2, j++, k++) {
+      decryptedTextArray[i] = encryptedText[k];
+
+      if (i === encryptedText.length - 1) {
+        continue;
+      }
+
+      decryptedTextArray[i+1] = encryptedText[j];
+    }
+
+    encryptedText = decryptedTextArray.join('');
+    n--;
+  }
+
+  return encryptedText;
 }
 
 // __________________________________________________ Tic-Tac-Toe Checker
