@@ -8255,6 +8255,7 @@ function askForMissingDetails(list) {
    });
    return newList;
  }
+<<<<<<< HEAD
 //_______________________________________________________________ Odd-heavy Array
 
 
@@ -8292,11 +8293,63 @@ function isOddHeavy(n){
   return Math.min(...odd) > Math.max(...even)
 }
 //_______________________________________________________________
+=======
+//_______________________________________________________________ Multiples of 3 or 5
+
 
 /*
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 
+Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+
+Additionally, if the number is negative, return 0.
+
+Note: If the number is a multiple of both 3 and 5, only count it once.
 */
+function solution(number){
+  if(number < 0) {
+    return 0;
+  }
+  
+  let sum = 0;
+  
+  for(let i = 3; i < number; i++) {
+    if((i % 3 === 0) || (i % 5 === 0)) {
+      sum += i;
+    }
+  }
+  
+  return sum;
+}
+//_______________________________________________________________ Stop gninnipS My sdroW!
+>>>>>>> c11abeefe11d7cae6b653cdc0eb7e5082ca4b4aa
 
+/*
+Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+
+Examples:
+
+spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw"
+spinWords( "This is a test") => returns "This is a test"
+spinWords( "This is another test" )=> returns "This is rehtona test"
+*/
+    function spinWords(string) {
+        let result = string.split(' ');
+
+        for (let i = 0; i < result.length; i++) {
+            if (result[i].length >= 5) {
+                result[i] = result[i].split('').reverse().join('')
+            }
+        }
+
+        return result.join(' ');
+    }
+
+    function spinWords(words){
+        return words.split(' ').map(function (word) {
+            return (word.length > 4) ? word.split('').reverse().join('') : word;
+        }).join(' ');
+    }
 //_______________________________________________________________
 
 /*
