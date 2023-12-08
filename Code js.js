@@ -8673,12 +8673,27 @@ function remember(str) {
   
   return repeatedChars;
 }
-//_______________________________________________________________
+//_______________________________________________________________ Sort arrays - 3
+
 
 /*
+This time the input is a sequence of course-ids that are formatted in the following way:
 
+name-yymm
+The return of the function shall first be sorted by yymm, then by the name (which varies in length).
 */
+function sortme(courses) {
+  return courses.sort((a, b) => {
+    const [nameA, yymmA] = a.split("-");
+    const [nameB, yymmB] = b.split("-");
 
+    if (yymmA === yymmB) {
+      return nameA.localeCompare(nameB);
+    } else {
+      return yymmA.localeCompare(yymmB);
+    }
+  });
+}
 //_______________________________________________________________
 
 /*
