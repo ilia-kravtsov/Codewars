@@ -8455,318 +8455,71 @@ Examples
 
         return +exit
     }
-//_______________________________________________________________ Basics 03: Strings, Numbers and Calculation
+//_______________________________________________________________ Simple Pig Latin
 
 
 /*
-Here you have to do some mathematical operations on a "dirty string". This kata checks some basics, it's not too difficult.
+Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
 
-So what to do?
-
-Input: String which consists of two positive numbers (doubles) and exactly one operator like +, -, * or / always between these numbers. The string is dirty, which means that there are different characters inside too, not only numbers and the operator. You have to combine all digits left and right, perhaps with "." inside (doubles), and to calculate the result which has to be rounded to an integer and converted to a string at the end.
-
-Easy example:
-Input: "gdfgdf234dg54gf*23oP42"
-Output: "54929268" (because 23454*2342=54929268)
-First there are some static tests, later on random tests too...
+Examples
+pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
+pigIt('Hello world !');     // elloHay orldway !
 */
-function calculateString(st){
-const cleanedString = st.replace(/[^0-9.+\-*/]/g, ''); 
-const numbers = cleanedString.match(/[\d.]+/g).map(Number); 
-const operator = cleanedString.match(/[\+\-\*\/]/)[0]; 
 
-let result;
-switch (operator) {
-  case '+':
-    result = numbers.reduce((a, b) => a + b);
-    break;
-  case '-':
-    result = numbers.reduce((a, b) => a - b);
-    break;
-  case '*':
-    result = numbers.reduce((a, b) => a * b);
-    break;
-  case '/':
-    result = numbers.reduce((a, b) => a / b);
-    break;
-  default:
-    return 'Invalid operator';
+function pigIt(str){
+  let result = str.split(' ')
+   for (let i = 0; i < result.length; i++) {
+       const regex = /^[a-zA-Z]+$/;
+       if (regex.test(result[i])) {
+           const restOfTheWord = result[i].slice(1)
+           result[i] = restOfTheWord + result[i][0] + 'ay'
+       }
+   }
+   return result.join(' ')
 }
 
-return String(Math.round(result));
-}
-//_______________________________________________________________ Cat and Mouse - Harder Version
-
+//_______________________________________________________________
 
 /*
-You will be given a string (x) featuring a cat 'C', a dog 'D' and a mouse 'm'. The rest of the string will be made up of '.'.
 
-You need to find out if the cat can catch the mouse from it's current position. The cat can jump (j) characters.
-
-Also, the cat cannot jump over the dog.
-
-So:
-
-if j = 5:
-
-..C.....m. returns 'Caught!' <-- not more than j characters between
-
-.....C............m...... returns 'Escaped!' <-- as there are more than j characters between the two, the cat can't jump far enough
-
-if j = 10:
-
-...m.........C...D returns 'Caught!' <--Cat can jump far enough and jump is not over dog
-
-...m....D....C....... returns 'Protected!' <-- Cat can jump far enough, but dog is in the way, protecting the mouse
-
-Finally, if all three animals are not present, return 'boring without all three'
 */
-function catMouse(x, j){
-  if (!x.includes('C') || !x.includes('D') || !x.includes('m')) {
-    return 'boring without all three';
-  }
 
-  const catIndex = x.indexOf('C');
-  const mouseIndex = x.indexOf('m');
-  const dogIndex = x.indexOf('D');
-
-  if (Math.abs(mouseIndex - catIndex) <= j) {
-    if (dogIndex > Math.min(catIndex, mouseIndex) && dogIndex < Math.max(catIndex, mouseIndex)) {
-      return 'Protected!';
-    } else {
-      return 'Caught!';
-    }
-  } else {
-    return 'Escaped!';
-  }
-}
-//_______________________________________________________________ TV channels
-
+//_______________________________________________________________
 
 /*
-Program channels into your TV's memory. An array with channels (strings) will be passed as an argument to the function redarr(). Sort the channels in an alphabetical order, remove duplicates and, finally, return an object where each channel (object's value) is assigned to a whole number (objects's key), starting with 0.
 
-Examples:
-
-var arr = ["BBC1", "BBC2", "MTV"];
-
-redarr(arr) // returns {"0":"BBC1", "1":"BBC2", "2":"MTV"}
-
-var arr = ["BBC1", "BBC1", "BBC2", "MTV"];
-
-redarr(arr) // returns {"0":"BBC1", "1":"BBC2", "2":"MTV"}
 */
-function redarr(arr) {
-  const uniq = [...new Set(arr)]
-  uniq.sort()
-  const result = {}
-  for (let i = 0; i < uniq.length; i++) {
-      result[i] = uniq[i]
-  }
-  return result
-}
-function redarr(arr) {
-  return Object.assign({}, Array.from(new Set(arr)).sort());
-}
-//_______________________________________________________________ flatten()
 
+//_______________________________________________________________
 
 /*
-For this exercise you will create a global flatten method. The method takes in any number of arguments and flattens them into a single array. If any of the arguments passed in are an array then the individual objects within the array will be flattened so that they exist at the same level as the other arguments. Any nested arrays, no matter how deep, should be flattened into the single array result.
 
-The following are examples of how this function would be used and what the expected results would be:
-
-flatten(1, [2, 3], 4, 5, [6, [7]]) // returns [1, 2, 3, 4, 5, 6, 7]
-flatten('a', ['b', 2], 3, null, [[4], ['c']]) // returns ['a', 'b', 2, 3, null, 4, 'c']
 */
-function flatten(...input) {
-  // I decided to write a more detailed version of the code...
-  let primitives = ['number', 'string', 'boolean', 'undefined', 'symbol']
-  let result = []
-  
-  for (let i = 0; i < input.length; i++) {
-      // the line of code below is like this because 'typeof null - "object"' -> this is a known quirk in JavaScript :D
-      if (primitives.some(n => typeof input[i] === n) || input[i] === null) { 
-          result.push(input[i])
-      } else if (Array.isArray(input[i])) {
-          // here i wrote a recursive version of the flat() method
-          function flattenArray(arr) {
-              let flattened = [];
 
-              arr.forEach((element) => {
-                  if (Array.isArray(element)) {
-                      flattened = flattened.concat(flattenArray(element));
-                  } else {
-                      flattened.push(element);
-                  }
-              });
-
-              return flattened;
-          }
-
-          for (let j = 0; j < flattenArray(input[i]).length; j++) {
-              result.push(flattenArray(input[i])[j])
-          }
-
-      }
-  }
-  return result
-}
-function flatten(...input) {
-  let result = []
-  let primitives = ['number', 'string', 'boolean', 'undefined', 'symbol']
-  
-//     version 1
-//     for (let i = 0; i < input.length; i++) {
-//         if (primitives.some(n => typeof input[i] === n) || input[i] === null) {
-//             result.push(input[i])
-//         } else if (Array.isArray(input[i])) {
-//             result = result.concat(input[i].flat(Infinity));
-//         }
-//     }
-     
-//     version 2
-  for (let i = 0; i < input.length; i++) {
-      if (primitives.some(n => typeof input[i] === n) || input[i] === null) {
-        result.push(input[i]);
-      } else if (Array.isArray(input[i])) {
-        result = result.concat(flatten(...input[i]));
-      }
-  }
-  return result
-}
-var flatten=function(...arr){
-  return arr.toString().split(",");
-}
-//_______________________________________________________________ Remember
-
+//_______________________________________________________________
 
 /*
-Write a function that takes a string and returns an array of the repeated characters (letters, numbers, whitespace) in the string.
 
-If a charater is repeated more than once, only show it once in the result array.
-
-Characters should be shown by the order of their first repetition. Note that this may be different from the order of first appearance of the character.
-
-Characters are case sensitive.
-
-For F# return a "char list"
-
-Examples:
-remember("apple") => returns ["p"]
-remember("apPle") => returns []          // no repeats, "p" != "P"
-remember("pippi") => returns ["p","i"]   // show "p" only once
-remember('Pippi') => returns ["p","i"]   // "p" is repeated first
 */
-function remember(str) {
-  var repeatedChars = [];
-  var seenChars = new Set();
-  
-  for (var i = 0; i < str.length; i++) {
-    var char = str[i];
-    
-    if (str.indexOf(char) !== i && !seenChars.has(char)) {
-      repeatedChars.push(char);
-      seenChars.add(char);
-    }
-  }
-  
-  return repeatedChars;
-}
-//_______________________________________________________________ Sort arrays - 3
 
+//_______________________________________________________________
 
 /*
-This time the input is a sequence of course-ids that are formatted in the following way:
 
-name-yymm
-The return of the function shall first be sorted by yymm, then by the name (which varies in length).
 */
-function sortme(courses) {
-  return courses.sort((a, b) => {
-    const [nameA, yymmA] = a.split("-");
-    const [nameB, yymmB] = b.split("-");
 
-    if (yymmA === yymmB) {
-      return nameA.localeCompare(nameB);
-    } else {
-      return yymmA.localeCompare(yymmB);
-    }
-  });
-}
-//_______________________________________________________________ Maximum Contiguous Sum
-
+//_______________________________________________________________
 
 /*
-Given an unsorted array of integer values, find the maximum positive sum of any contiguous range within the array.
 
-An array containing only negative values can return 0. Your solution should be efficient enough to not throw a timeout exception.
-
-Example:
-maxContiguousSum([3, -4, 8, 7, -10, 19, -3]); // returns 24
-maxContiguousSum([-8, -10, -12, -2, -3, 5]); // returns 5
-Visual example:
-[3, -4, 8, 7, -10, 19, -3]
-       |_____________|
-             ||
-             \/
-             24
 */
-function maxContiguousSum (arr) {
-  let maxSum = 0;
-  let currentSum = 0;
 
-  for (let i = 0; i < arr.length; i++) {
-    currentSum = Math.max(currentSum + arr[i], 0);
-    maxSum = Math.max(maxSum, currentSum);
-  }
-
-  return maxSum;
-}
-//_______________________________________________________________ Fun with trees: array to tree
-
+//_______________________________________________________________
 
 /*
-You are given a non-null array of integers. Implement the method arrayToTree which creates a binary tree from its values in accordance to their order, while creating nodes by depth from left to right.
 
-For example, given the array [17, 0, -4, 3, 15] you should create the following tree:
-
-    17
-   /  \
-  0   -4
- / \
-3   15 
-The class TreeNode is available for you:
-
-var TreeNode = function(value, left, right) {
-  this.value = value;
-  this.left = left;
-  this.right = right;
-};
 */
-var TreeNode = function(value, left, right) {
-  this.value = value;
-  this.left = left;
-  this.right = right;
-};
 
-function arrayToTree(array) {
-  if (!array.length) {
-    return undefined; 
-  }
-
-  const nodes = array.map(value => new TreeNode(value));
-  for (let i = 0; i < nodes.length; i++) {
-    if (2 * i + 1 < nodes.length) {
-      nodes[i].left = nodes[2 * i + 1];
-    }
-    if (2 * i + 2 < nodes.length) {
-      nodes[i].right = nodes[2 * i + 2];
-    }
-  }
-
-  return nodes[0];
-}
 //_______________________________________________________________
 
 /*
