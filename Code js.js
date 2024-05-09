@@ -1,51 +1,3 @@
-NJseeДД
-// Training JS #1: create your first JS function and print "Hello World!"
-
-function helloWorld() {
-    const str = "Hello World!";
-    console.log(str);
-  }
-
-// BP
-
-helloWorld = function() {
-    var str = "Hello World!";
-    console.log( str );
-  }
-//_____________codewars 
-//_____________return negative
-/*
-In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
-
-Examples
-makeNegative(1);    // return -1
-makeNegative(-5);   // return -5
-makeNegative(0);    // return 0
-makeNegative(0.12); // return -0.12
-Notes
-The number can be negative already, in which case no change is required.
-Zero (0) is not checked for any specific sign. Negative zeros make no mathematical sense.
-*/
-const makeNegative = num => num > 0 ? -num : num
-//_____________convert boolean
-/*
-Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false.
-*/
-const boolToWord = bool => bool ? 'Yes' : 'No';
-//_____________
-/*
-
-*/
-
-//_____________
-/*
-
-*/
-
-//_____________
-/*
-
-*/
 // Training JS #2: Basic data types--Number
 
   var v1=50;v2=100,v3=150,v4=200,v5=2,v6=250
@@ -8429,7 +8381,6 @@ function solution(number){
   return sum;
 }
 //_______________________________________________________________ Stop gninnipS My sdroW!
->>>>>>> c11abeefe11d7cae6b653cdc0eb7e5082ca4b4aa
 
 /*
 Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
