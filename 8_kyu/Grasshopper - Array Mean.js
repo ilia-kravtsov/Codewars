@@ -17,7 +17,7 @@ For an example list of 1, 3, 5, 7
 */
 const findAverage = nums => nums.reduce((a, b) => a + b) / nums.length;
 
-var findAverage = function (nums) {
+var findAverage_2 = function (nums) {
   let ave = 0
   for(let i = 0; i < nums.length; i++) {
      ave += nums[i]
