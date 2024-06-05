@@ -1,0 +1,1 @@
+const differenceInAges = ages => [Math.min.apply(null, ages), Math.max.apply(null, ages), Math.max.apply(null, ages) - Math.min.apply(null, ages)]
