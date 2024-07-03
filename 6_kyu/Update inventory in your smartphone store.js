@@ -16,11 +16,11 @@ updateInventory(currentStock, newStock)  ==>
 function updateInventory(curStock, newStock) {
   const inventoryMap = new Map();
 
-  curStock.forEach((item) => {
+  curStock.forEach(item => {
     inventoryMap.set(item[1], item[0]);
   });
 
-  newStock.forEach((item) => {
+  newStock.forEach(item => {
     if (inventoryMap.has(item[1])) {
       inventoryMap.set(item[1], inventoryMap.get(item[1]) + item[0]);
     } else {
@@ -28,10 +28,7 @@ function updateInventory(curStock, newStock) {
     }
   });
 
-  const updatedStock = Array.from(inventoryMap, ([name, quantity]) => [
-    quantity,
-    name,
-  ]);
+  const updatedStock = Array.from(inventoryMap, ([name, quantity]) => [quantity, name]);
 
   updatedStock.sort((a, b) => a[1].localeCompare(b[1]));
 
