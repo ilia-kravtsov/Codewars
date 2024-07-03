@@ -34,6 +34,7 @@ function sort(students) {
 
     const lastNameA = a.fullName.split(" ").slice(-1)[0];
     const lastNameB = b.fullName.split(" ").slice(-1)[0];
+
     if (lastNameA[0] !== lastNameB[0]) {
       return lastNameA[0].localeCompare(lastNameB[0]);
     }
