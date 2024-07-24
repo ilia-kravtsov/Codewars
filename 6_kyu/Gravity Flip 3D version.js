@@ -9,18 +9,18 @@ See the sample tests for examples.
 */
 
 function flip(d, a) {
-  const copy = a.map(row => [...row]);
+  const copy = a.map((row) => [...row]);
 
-  const sortFunc = d === 'U' || d === 'L' ? (a, b) => b - a : (a, b) => a - b;
+  const sortFunc = d === "U" || d === "L" ? (a, b) => b - a : (a, b) => a - b;
 
   switch (d) {
-    case 'L':
-    case 'R':
-      return copy.map(row => row.sort(sortFunc));
-    case 'U':
-    case 'D':
+    case "L":
+    case "R":
+      return copy.map((row) => row.sort(sortFunc));
+    case "U":
+    case "D":
       for (let i = 0; i < copy[0].length; i++) {
-        let column = copy.map(row => row[i]);
+        let column = copy.map((row) => row[i]);
         column.sort(sortFunc);
         for (let j = 0; j < copy.length; j++) {
           copy[j][i] = column[j];

@@ -35,17 +35,17 @@ function customFib(signature, indexes, n) {
   const length = signature.length;
 
   if (n < length) {
-      return signature[n];
+    return signature[n];
   }
 
   const sequence = [...signature];
 
   for (let i = length; i <= n; i++) {
-      let nextElement = 0;
-      for (const index of indexes) {
-          nextElement += sequence[i - length + index];
-      }
-      sequence.push(nextElement);
+    let nextElement = 0;
+    for (const index of indexes) {
+      nextElement += sequence[i - length + index];
+    }
+    sequence.push(nextElement);
   }
 
   return sequence[n];
