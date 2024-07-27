@@ -13,10 +13,10 @@ var array2 = array.except(1);
 // array2 should contain ['a', 'c', 'd', 'e']
 */
 
-Array.prototype.except = function(keys) {
+Array.prototype.except = function (keys) {
   if (!Array.isArray(keys)) {
-    keys = [keys]
+    keys = [keys];
   }
 
-  return this.filter((_, index) => !keys.includes(index))
-}
+  return this.filter((_, index) => !keys.includes(index));
+};
