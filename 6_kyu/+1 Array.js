@@ -26,7 +26,7 @@ function upArray(arr){
   }
   
   arr[arr.length - 1]++;
-  
+  console.log(arr)
   for (let i = arr.length - 1; i > 0; i--) {
     if (arr[i] > 9) {
       arr[i] = 0;
