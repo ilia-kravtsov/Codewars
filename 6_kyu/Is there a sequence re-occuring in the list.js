@@ -18,6 +18,7 @@ Note: Lists with up to 107 items will be tested, so make sure your code is effic
 
 function isReoccuring(items) {
   let seen = new Set();
+
   let current = null;
 
   for (let i = 0; i < items.length; i++) {
