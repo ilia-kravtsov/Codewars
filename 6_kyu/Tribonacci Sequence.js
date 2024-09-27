@@ -23,3 +23,18 @@ function tribonacci(signature,n) {
   }
   return signature.slice(0, n);
 }
+
+function tribonacci(signature, n) {
+  if (n === 0) return [];
+
+  if (n < 3) return signature.slice(0, n);
+
+  let sequence = [...signature];
+
+  for (let i = 3; i < n; i++) {
+      let nextNumber = sequence[i - 3] + sequence[i - 2] + sequence[i - 1];
+      sequence.push(nextNumber);
+  }
+
+  return sequence;
+}
