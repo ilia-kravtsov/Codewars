@@ -27,3 +27,5 @@ class RankCalculator {
     return rankings.sort((a, b) => b.points - a.points);
   }
 }
+/**/
+/**/
