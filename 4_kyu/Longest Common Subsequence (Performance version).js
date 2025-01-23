@@ -43,7 +43,8 @@ function lcs(x, y) {
     }
   }
 
-  let i = m, j = n;
+  let i = m,
+    j = n;
   let result = [];
   while (i > 0 && j > 0) {
     if (x[i - 1] === y[j - 1]) {
@@ -57,5 +58,5 @@ function lcs(x, y) {
     }
   }
 
-  return result.reverse().join('');
+  return result.reverse().join("");
 }
