@@ -47,25 +47,25 @@ function isInteresting(number, awesomePhrases) {
   function check(n) {
     if (n < 100) return false;
     const s = n.toString();
-    
+
     if (/^[1-9]0+$/.test(s)) return true;
-    
+
     if (/^(\d)\1+$/.test(s)) return true;
-    
+
     if ("1234567890".includes(s)) return true;
-    
+
     if ("9876543210".includes(s)) return true;
-    
-    if (s === s.split('').reverse().join('')) return true;
-    
+
+    if (s === s.split("").reverse().join("")) return true;
+
     if (awesomePhrases.includes(n)) return true;
-    
+
     return false;
   }
-  
+
   if (check(number)) return 2;
-  
+
   if (check(number + 1) || check(number + 2)) return 1;
-  
+
   return 0;
 }
