@@ -1,4 +1,3 @@
-function solution(number) {
   const romanMap = [
     { value: 1000, symbol: 'M' },
     { value: 900,  symbol: 'CM' },
@@ -14,7 +13,8 @@ function solution(number) {
     { value: 4,    symbol: 'IV' },
     { value: 1,    symbol: 'I' }
   ];
-​
+
+function solution_1(number) {
   let result = '';
 ​
   for (const { value, symbol } of romanMap) {
@@ -28,3 +28,15 @@ function solution(number) {
   return result;
 }
 ​
+function solution_2(number){
+  let result = "";
+
+  for (const { value, symbol } of romanMap) {
+    while (number >= value) {
+      result += symbol;
+      number -= value;
+    }
+  }
+
+  return result;
+}
