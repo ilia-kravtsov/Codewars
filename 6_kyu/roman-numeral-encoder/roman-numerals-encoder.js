@@ -16,7 +16,7 @@
 
 function solution_1(number) {
   let result = '';
-​
+
   for (const { value, symbol } of romanMap) {
     const count = Math.floor(number / value);
     if (count > 0) {
@@ -24,10 +24,10 @@ function solution_1(number) {
       number -= value * count;
     }
   }
-​
+
   return result;
 }
-​
+
 function solution_2(number){
   let result = "";
 
