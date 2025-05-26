@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const folder = path.join(__dirname, "4-kyu");
+const folder = path.join(__dirname, "3-kyu");
 
 fs.readdirSync(folder).forEach((file) => {
   const fullPath = path.join(folder, file);
