@@ -1,0 +1,19 @@
+{
+  "name": "codewars",
+  "version": "1.0.0",
+  "description": "my codewars solutions",
+  "main": "index.js",
+  "scripts": {
+    "create": "node create-module.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilia-kravtsov/Codewars.git"
+  },
+  "author": "ilia-kravtsov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilia-kravtsov/Codewars/issues"
+  },
+  "homepage": "https://github.com/ilia-kravtsov/Codewars#readme"
+}
