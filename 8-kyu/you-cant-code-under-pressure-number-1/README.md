@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/53ee5429ba190077850011d4/train/javascript target="_blank">You Can't Code Under Pressure #1</a></h2><h3>8 kyu</h3><p>Code as fast as you can! You need to double the integer and return it.</p>
