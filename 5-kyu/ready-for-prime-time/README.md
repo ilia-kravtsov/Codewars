@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/521ef596c106a935c0000519/train/javascript target="_blank">(Ready for) Prime Time</a></h2><h3>5 kyu</h3><p>We need prime numbers and we need them now!</p><p>Write a method that takes a maximum bound and returns all primes up to and including the maximum bound.</p><p>For example,</p><pre><code>11 =&gt; [2, 3, 5, 7, 11]</code></pre>
