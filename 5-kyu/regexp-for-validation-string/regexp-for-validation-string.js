@@ -1,0 +1,1 @@
+let reg = /^(?=.*(?:^|,)name:[A-Za-z]+(?:,|$))(?=.*(?:^|,)age:\d+(?:,|$))(?=.*(?:^|,)skill:[A-Za-z]+(?:,|$))(?:name:[A-Za-z]+|age:\d+|skill:[A-Za-z]+)(?:,(?:name:[A-Za-z]+|age:\d+|skill:[A-Za-z]+)){2}$/
