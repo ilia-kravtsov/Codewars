@@ -3,14 +3,14 @@ function solve(str, idx) {
     return -1;
   }
   
-  let count = 0;
+  const stack = [];
   
   for (let i = idx; i < str.length; i++) {
     if (str[i] === '(') {
-      count++;
+      stack.push(i);
     } else if (str[i] === ')') {
-      count--;
-      if (count === 0) {
+      const openIndex = stack.pop();
+      if (openIndex === idx) {
         return i;
       }
     }
