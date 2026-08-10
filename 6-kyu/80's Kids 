@@ -1,0 +1,25 @@
+class Robot {
+    constructor() {
+        this.words = new Set(
+            'Thank you for teaching me I already know the word I do not understand the input'
+                .toLowerCase()
+                .split(' ')
+        );
+    }
+​
+    learnWord(word) {
+        if (!/^[a-z]+$/i.test(word)) {
+            return 'I do not understand the input';
+        }
+​
+        const lowerWord = word.toLowerCase();
+​
+        if (this.words.has(lowerWord)) {
+            return `I already know the word ${word}`;
+        }
+​
+        this.words.add(lowerWord);
+​
+        return `Thank you for teaching me ${word}`;
+    }
+}
