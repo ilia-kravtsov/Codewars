@@ -1,0 +1,21 @@
+String.prototype.ipv4Address = function () {
+  const parts = this.split('.');
+​
+  if (parts.length !== 4) {
+    return false;
+  }
+​
+  return parts.every(part => {
+    if (!/^\d+$/.test(part)) {
+      return false;
+    }
+​
+    if (part.length > 1 && part[0] === '0') {
+      return false;
+    }
+​
+    const number = Number(part);
+​
+    return number >= 0 && number <= 255;
+  });
+};
