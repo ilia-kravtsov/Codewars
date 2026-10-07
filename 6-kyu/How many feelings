@@ -1,0 +1,28 @@
+function countFeelings(string, array) {
+  const stringCount = {};
+  for (let char of string) {
+    stringCount[char] = (stringCount[char] || 0) + 1;
+  }
+  
+  let count = 0;
+  for (let feeling of array) {
+    const feelingCount = {};
+    for (let char of feeling) {
+      feelingCount[char] = (feelingCount[char] || 0) + 1;
+    }
+    
+    let canForm = true;
+    for (let char in feelingCount) {
+      if ((stringCount[char] || 0) < feelingCount[char]) {
+        canForm = false;
+        break;
+      }
+    }
+    
+    if (canForm) {
+      count++;
+    }
+  }
+  
+  return count + (count === 1 ? ' feeling.' : ' feelings.');
+}
