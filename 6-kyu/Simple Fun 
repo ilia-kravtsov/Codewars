@@ -1,0 +1,25 @@
+function pairOfShoes(shoes) {
+    const leftCount = {};
+    const rightCount = {};
+    
+    for (const [type, size] of shoes) {
+        if (type === 0) {
+            leftCount[size] = (leftCount[size] || 0) + 1;
+        } else {
+            rightCount[size] = (rightCount[size] || 0) + 1;
+        }
+    }
+    
+    const allSizes = new Set([...Object.keys(leftCount), ...Object.keys(rightCount)]);
+    
+    for (const size of allSizes) {
+        const left = leftCount[size] || 0;
+        const right = rightCount[size] || 0;
+        
+        if (left !== right) {
+            return false;
+        }
+    }
+    
+    return true;
+}
