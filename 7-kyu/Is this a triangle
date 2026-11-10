@@ -1,0 +1,13 @@
+// The code below was created by NI - Natural Intelligence
+​
+function isTriangle(a,b,c) {
+    if (!Number.isInteger(a) || !Number.isInteger(b) || !Number.isInteger(c)) {
+        return false;
+    }
+​
+    if (a <= 0 || b <= 0 || c <= 0 ) {
+        return false;
+    }
+​
+    return a + b > c && a + c > b && b + c > a;
+}
